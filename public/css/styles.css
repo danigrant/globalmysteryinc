@@ -1,0 +1,19 @@
+.appcontainer-wrapper {
+  margin-top: 30px;
+  height: -webkit-fill-available;
+}
+
+.card-section-wrapper {
+  background-color: white;
+  box-shadow: 0px 4px 4px rgba(135, 135, 135, 0.25);
+  border-radius: 10px;
+  padding: 20px;
+  margin-top: 30px;
+}
+
+#bitmoji-image {
+  position: fixed;
+  bottom: -20px;
+  right: 50px;
+  width: 180px;
+}

@@ -1,15 +1,20 @@
-body {
+body, html {
   background: linear-gradient(180deg, #E2FCEA 0%, #DAEAFC 100%);
   background-repeat: no-repeat;
   background-attachment: fixed;
   margin: 0;
-  height: 100%;
+  height: inherit;
   font-family: Nunito;
 }
+
+h1, p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
 .constrained-width {
   width: 95%;
   max-width: 1100px;
-  background-color: white;
   margin: 0 auto;
 }
 
@@ -19,7 +24,7 @@ body {
 }
 
 .font-lrg {
-  font-size: 52px;
+  font-size: 42px;
   font-weight: 900;
 }
 
@@ -43,7 +48,11 @@ body {
 }
 
 .button {
-  padding: 20px;
+  padding: 10px;
+  font-weight: 900;
+  border-radius: 10px;
+  outline: 0;
+  border: none;
 }
 
 .button:hover {
@@ -62,4 +71,8 @@ body {
 .background-color-purple {
   background-color: #AB96FF;
   color: white;
+}
+
+.center {
+  text-align: center;
 }

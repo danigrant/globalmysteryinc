@@ -2216,13 +2216,85 @@ function (_React$Component) {
           lineNumber: 11
         },
         __self: this
-      }, __jsx("p", {
+      }, __jsx("div", {
+        className: "title-section-wrapper center",
         __source: {
           fileName: _jsxFileName,
           lineNumber: 12
         },
         __self: this
-      }, "this is where the magic happens")));
+      }, __jsx("h1", {
+        className: "font-lrg",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 13
+        },
+        __self: this
+      }, "Serious question."), __jsx("h1", {
+        className: "font-lrg",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 14
+        },
+        __self: this
+      }, "What would you like explained?")), __jsx("div", {
+        className: "card-section-wrapper",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 16
+        },
+        __self: this
+      }, __jsx("form", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 17
+        },
+        __self: this
+      }, __jsx("label", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 18
+        },
+        __self: this
+      }, "How would you explain"), __jsx("input", {
+        type: "text",
+        placeholder: "how does popcorn work",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 19
+        },
+        __self: this
+      }), __jsx("label", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 20
+        },
+        __self: this
+      }, "to a"), __jsx("input", {
+        type: "text",
+        placeholder: "space alien who has never visited earth",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 21
+        },
+        __self: this
+      }), __jsx("button", {
+        className: "button background-color-purple",
+        type: "submit",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 22
+        },
+        __self: this
+      }, "Submit Mystery"))), __jsx("img", {
+        id: "bitmoji-image",
+        src: "/images/bitmoji-thinking.png",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 25
+        },
+        __self: this
+      })));
     }
   }]);
 
