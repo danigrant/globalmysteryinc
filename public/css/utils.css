@@ -12,9 +12,29 @@ h1, p {
   margin-bottom: 0;
 }
 
+button, input, select, textarea {
+  font-family : inherit;
+  font-size: inherit;
+  outline: 0;
+}
+
+input {
+  border: none;
+  border-bottom: 3px solid black;
+  color: #AB96FF;
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 100%;
+  max-width: 450px;
+}
+
+input::placeholder {
+  color: #AB96FF;
+}
+
 .constrained-width {
   width: 95%;
-  max-width: 1100px;
+  max-width: 900px;
   margin: 0 auto;
 }
 
@@ -35,7 +55,7 @@ h1, p {
   }
 
   .font-lrg {
-    font-size: 52px;
+    font-size: 32px;
   }
 }
 
@@ -53,6 +73,7 @@ h1, p {
   border-radius: 10px;
   outline: 0;
   border: none;
+  width: fit-content;
 }
 
 .button:hover {
@@ -75,4 +96,13 @@ h1, p {
 
 .center {
   text-align: center;
+  margin: 0 auto;
+}
+
+.margin-bottom-sml {
+  margin-bottom: 15px;
+}
+
+.margin-bottom-med {
+  margin-bottom: 35px;
 }

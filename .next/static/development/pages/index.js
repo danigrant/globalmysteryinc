@@ -2237,23 +2237,31 @@ function (_React$Component) {
           lineNumber: 14
         },
         __self: this
-      }, "What would you like explained?")), __jsx("div", {
-        className: "card-section-wrapper",
+      }, "What would you like explained?"), __jsx("h2", {
+        className: "font-color-grey",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 16
+          lineNumber: 15
         },
         __self: this
-      }, __jsx("form", {
+      }, "Welcome to a project where we are sourcing mysteries and then will kick off a tournament to explain them.")), __jsx("div", {
+        className: "card-section-wrapper font-sml",
         __source: {
           fileName: _jsxFileName,
           lineNumber: 17
         },
         __self: this
-      }, __jsx("label", {
+      }, __jsx("form", {
+        className: "margin-bottom-med",
         __source: {
           fileName: _jsxFileName,
           lineNumber: 18
+        },
+        __self: this
+      }, __jsx("label", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 19
         },
         __self: this
       }, "How would you explain"), __jsx("input", {
@@ -2261,13 +2269,19 @@ function (_React$Component) {
         placeholder: "how does popcorn work",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 19
+          lineNumber: 20
+        },
+        __self: this
+      }), __jsx("br", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 21
         },
         __self: this
       }), __jsx("label", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 20
+          lineNumber: 22
         },
         __self: this
       }, "to a"), __jsx("input", {
@@ -2275,23 +2289,29 @@ function (_React$Component) {
         placeholder: "space alien who has never visited earth",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 21
+          lineNumber: 23
         },
         __self: this
-      }), __jsx("button", {
-        className: "button background-color-purple",
+      }), __jsx("br", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 24
+        },
+        __self: this
+      })), __jsx("div", {
+        className: "button background-color-purple center",
         type: "submit",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 22
+          lineNumber: 26
         },
         __self: this
-      }, "Submit Mystery"))), __jsx("img", {
+      }, "Submit Mystery")), __jsx("img", {
         id: "bitmoji-image",
         src: "/images/bitmoji-thinking.png",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 25
+          lineNumber: 28
         },
         __self: this
       })));
