@@ -1,6 +1,8 @@
 .appcontainer-wrapper {
   margin-top: 50px;
   height: -webkit-fill-available;
+  display: flex;
+  flex-direction: column;
 }
 
 .card-section-wrapper {
@@ -9,6 +11,7 @@
   border-radius: 10px;
   padding: 20px;
   margin-top: 30px;
+  flex-grow: 1;
 }
 
 #bitmoji-image {
@@ -16,4 +19,18 @@
   bottom: -20px;
   right: 50px;
   width: 180px;
+}
+
+.field-wrap {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.field-wrap input, .field-wrap textarea {
+  flex-grow: 1;
+}
+
+.how-label {
+  min-width: 350px;
 }

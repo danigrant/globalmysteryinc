@@ -18,18 +18,23 @@ button, input, select, textarea {
   outline: 0;
 }
 
-input {
+input, textarea {
   border: none;
   border-bottom: 3px solid black;
   color: #AB96FF;
-  margin-left: 10px;
-  margin-right: 10px;
-  width: 100%;
-  max-width: 450px;
 }
 
-input::placeholder {
+textarea {
+  box-sizing: border-box;
+  resize: none;
+}
+
+input::placeholder, textarea::placeholder {
   color: #AB96FF;
+}
+
+label {
+  padding-right: 10px;
 }
 
 .constrained-width {
