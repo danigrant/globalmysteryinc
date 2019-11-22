@@ -123,6 +123,47 @@ const AppContainer = props => {
 
 /***/ }),
 
+/***/ "./node_modules/@babel/runtime-corejs2/core-js/object/define-property.js":
+/*!*******************************************************************************!*\
+  !*** ./node_modules/@babel/runtime-corejs2/core-js/object/define-property.js ***!
+  \*******************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(/*! core-js/library/fn/object/define-property */ "core-js/library/fn/object/define-property");
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime-corejs2/helpers/esm/defineProperty.js":
+/*!***************************************************************************!*\
+  !*** ./node_modules/@babel/runtime-corejs2/helpers/esm/defineProperty.js ***!
+  \***************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return _defineProperty; });
+/* harmony import */ var _core_js_object_define_property__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core-js/object/define-property */ "./node_modules/@babel/runtime-corejs2/core-js/object/define-property.js");
+/* harmony import */ var _core_js_object_define_property__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_core_js_object_define_property__WEBPACK_IMPORTED_MODULE_0__);
+
+function _defineProperty(obj, key, value) {
+  if (key in obj) {
+    _core_js_object_define_property__WEBPACK_IMPORTED_MODULE_0___default()(obj, key, {
+      value: value,
+      enumerable: true,
+      configurable: true,
+      writable: true
+    });
+  } else {
+    obj[key] = value;
+  }
+
+  return obj;
+}
+
+/***/ }),
+
 /***/ "./pages/index.js":
 /*!************************!*\
   !*** ./pages/index.js ***!
@@ -132,17 +173,41 @@ const AppContainer = props => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _components_AppContainer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/AppContainer */ "./components/AppContainer.js");
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/defineProperty */ "./node_modules/@babel/runtime-corejs2/helpers/esm/defineProperty.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _components_AppContainer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/AppContainer */ "./components/AppContainer.js");
+
 var _jsxFileName = "/Users/danigrant/Projects/globalmysteryinc/pages/index.js";
-var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
 
 
 
-class Index extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
+class Index extends react__WEBPACK_IMPORTED_MODULE_1___default.a.Component {
   constructor(props) {
     super(props);
+
+    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "handleTopicChange", e => {
+      this.setState({
+        topic: e.target.value
+      });
+    });
+
+    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "handleAudienceChange", e => {
+      this.setState({
+        audience: e.target.value
+      });
+    });
+
+    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "handleSubmit", e => {
+      alert('A name was submitted: ' + this.state.topic + ' ' + this.state.audience);
+      e.preventDefault();
+    });
+
+    this.state = {
+      topic: '',
+      audience: ''
+    };
   }
 
   componentDidMount() {
@@ -161,110 +226,113 @@ class Index extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
     return __jsx("div", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 21
+        lineNumber: 35
       },
       __self: this
-    }, __jsx(_components_AppContainer__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    }, __jsx(_components_AppContainer__WEBPACK_IMPORTED_MODULE_2__["default"], {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 22
+        lineNumber: 36
       },
       __self: this
     }, __jsx("div", {
       className: "title-section-wrapper center",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 23
+        lineNumber: 37
       },
       __self: this
     }, __jsx("h1", {
       className: "font-lrg",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 24
+        lineNumber: 38
       },
       __self: this
     }, "Serious question."), __jsx("h1", {
       className: "font-lrg",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 25
+        lineNumber: 39
       },
       __self: this
     }, "What would you like explained?"), __jsx("h2", {
       className: "font-color-grey",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 26
+        lineNumber: 40
       },
       __self: this
     }, "Welcome to a project where we listen to your mysteries and then kick off a tournament to explain them.")), __jsx("div", {
       className: "card-section-wrapper font-sml",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 28
+        lineNumber: 42
       },
       __self: this
     }, __jsx("form", {
       className: "margin-bottom-med",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 29
+        lineNumber: 43
       },
       __self: this
     }, __jsx("div", {
       className: "field-wrap margin-bottom-sml",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 30
+        lineNumber: 44
       },
       __self: this
     }, __jsx("label", {
       className: "how-label",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 31
+        lineNumber: 45
       },
       __self: this
     }, "How would you explain"), __jsx("textarea", {
+      onChange: this.handleTopicChange,
       "data-autoresize": true,
       rows: "1",
       type: "text",
       placeholder: "how does popcorn work",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 32
+        lineNumber: 46
       },
       __self: this
     })), __jsx("div", {
       className: "field-wrap margin-bottom-sml",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 34
+        lineNumber: 48
       },
       __self: this
     }, __jsx("label", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 35
+        lineNumber: 49
       },
       __self: this
     }, "to a"), __jsx("textarea", {
+      onChange: this.handleAudienceChange,
       "data-autoresize": true,
       rows: "1",
       type: "text",
       placeholder: "space alien who has never visited earth",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 36
+        lineNumber: 50
       },
       __self: this
     }))), __jsx("div", {
+      onClick: this.handleSubmit,
       className: "button background-color-purple center",
       type: "submit",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 39
+        lineNumber: 53
       },
       __self: this
     }, "Submit Mystery")), __jsx("img", {
@@ -272,7 +340,7 @@ class Index extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
       src: "/images/bitmoji-thinking.png",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 41
+        lineNumber: 55
       },
       __self: this
     })));
@@ -293,6 +361,17 @@ class Index extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
 
 module.exports = __webpack_require__(/*! /Users/danigrant/Projects/globalmysteryinc/pages/index.js */"./pages/index.js");
 
+
+/***/ }),
+
+/***/ "core-js/library/fn/object/define-property":
+/*!************************************************************!*\
+  !*** external "core-js/library/fn/object/define-property" ***!
+  \************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("core-js/library/fn/object/define-property");
 
 /***/ }),
 

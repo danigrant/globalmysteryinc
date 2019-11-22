@@ -4,6 +4,10 @@ import AppContainer from '../components/AppContainer'
 class Index extends React.Component {
   constructor(props) {
     super(props)
+    this.state = {
+      topic: '',
+      audience: ''
+    }
   }
   componentDidMount() {
     document.querySelectorAll('[data-autoresize]').forEach(function (element) {
@@ -15,6 +19,16 @@ class Index extends React.Component {
       });
       element.removeAttribute('data-autoresize');
     });
+  }
+  handleTopicChange = e => {
+    this.setState({ topic: e.target.value })
+  }
+  handleAudienceChange = e => {
+    this.setState({ audience: e.target.value })
+  }
+  handleSubmit = e => {
+    alert('A name was submitted: ' + this.state.topic + ' ' + this.state.audience);
+    e.preventDefault();
   }
   render() {
     return (
@@ -29,14 +43,14 @@ class Index extends React.Component {
             <form className="margin-bottom-med">
               <div className="field-wrap margin-bottom-sml">
                 <label className="how-label">How would you explain</label>
-                <textarea data-autoresize rows="1" type="text" placeholder="how does popcorn work"></textarea>
+                <textarea onChange={this.handleTopicChange} data-autoresize rows="1" type="text" placeholder="how does popcorn work"></textarea>
               </div>
               <div className="field-wrap margin-bottom-sml">
                 <label>to a</label>
-                <textarea data-autoresize rows="1" type="text" placeholder="space alien who has never visited earth"></textarea>
+                <textarea onChange={this.handleAudienceChange} data-autoresize rows="1" type="text" placeholder="space alien who has never visited earth"></textarea>
               </div>
             </form>
-            <div className="button background-color-purple center" type="submit">Submit Mystery</div>
+            <div onClick={this.handleSubmit} className="button background-color-purple center" type="submit">Submit Mystery</div>
           </div>
           <img id="bitmoji-image" src="/images/bitmoji-thinking.png" />
         </AppContainer>
