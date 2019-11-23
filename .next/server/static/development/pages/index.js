@@ -123,6 +123,17 @@ const AppContainer = props => {
 
 /***/ }),
 
+/***/ "./node_modules/@babel/runtime-corejs2/core-js/json/stringify.js":
+/*!***********************************************************************!*\
+  !*** ./node_modules/@babel/runtime-corejs2/core-js/json/stringify.js ***!
+  \***********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(/*! core-js/library/fn/json/stringify */ "core-js/library/fn/json/stringify");
+
+/***/ }),
+
 /***/ "./node_modules/@babel/runtime-corejs2/core-js/object/define-property.js":
 /*!*******************************************************************************!*\
   !*** ./node_modules/@babel/runtime-corejs2/core-js/object/define-property.js ***!
@@ -173,40 +184,102 @@ function _defineProperty(obj, key, value) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/defineProperty */ "./node_modules/@babel/runtime-corejs2/helpers/esm/defineProperty.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _components_AppContainer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/AppContainer */ "./components/AppContainer.js");
+/* harmony import */ var _babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/core-js/json/stringify */ "./node_modules/@babel/runtime-corejs2/core-js/json/stringify.js");
+/* harmony import */ var _babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/defineProperty */ "./node_modules/@babel/runtime-corejs2/helpers/esm/defineProperty.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _components_AppContainer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/AppContainer */ "./components/AppContainer.js");
+/* harmony import */ var react_pose__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-pose */ "react-pose");
+/* harmony import */ var react_pose__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react_pose__WEBPACK_IMPORTED_MODULE_4__);
+
 
 var _jsxFileName = "/Users/danigrant/Projects/globalmysteryinc/pages/index.js";
-var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
+var __jsx = react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement;
 
 
 
-class Index extends react__WEBPACK_IMPORTED_MODULE_1___default.a.Component {
+const ExpandableBox = react_pose__WEBPACK_IMPORTED_MODULE_4___default.a.div({
+  expanded: {
+    marginTop: 0
+  },
+  contracted: {
+    marginTop: 30
+  }
+});
+
+class Index extends react__WEBPACK_IMPORTED_MODULE_2___default.a.Component {
   constructor(props) {
     super(props);
 
-    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "handleTopicChange", e => {
+    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__["default"])(this, "handleFormActive", () => {
+      this.setState({
+        formIsActive: true
+      });
+    });
+
+    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__["default"])(this, "handleTopicChange", e => {
       this.setState({
         topic: e.target.value
       });
     });
 
-    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "handleAudienceChange", e => {
+    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__["default"])(this, "handleAudienceChange", e => {
       this.setState({
         audience: e.target.value
       });
     });
 
-    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "handleSubmit", e => {
-      alert('A name was submitted: ' + this.state.topic + ' ' + this.state.audience);
+    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__["default"])(this, "handleEmailChange", e => {
+      this.setState({
+        email: e.target.value
+      });
+    });
+
+    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__["default"])(this, "handleTwitterChange", e => {
+      this.setState({
+        twitter: e.target.value
+      });
+    });
+
+    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__["default"])(this, "handleAnonymityChange", e => {
+      this.setState({
+        anonymity: !this.state.anonymity
+      });
+    });
+
+    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__["default"])(this, "handleSubmit", e => {
       e.preventDefault();
+      fetch('https://en7zz3uf5iumrri.m.pipedream.net', {
+        method: 'POST',
+        body: _babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_0___default()({
+          "anonymous": this.state.anonymity.toString(),
+          "twitter_handle": this.state.twitter,
+          "email": this.state.email,
+          "mystery": this.state.topic,
+          "mystery_audience": this.state.audience
+        })
+      }); // reset form
+
+      this.setState({
+        topic: '',
+        audience: '',
+        email: '',
+        twitter: '',
+        anonymity: false,
+        formIsActive: false,
+        formSubmitted: true
+      });
     });
 
     this.state = {
       topic: '',
-      audience: ''
+      audience: '',
+      email: '',
+      twitter: '',
+      anonymity: false,
+      formIsActive: false,
+      formSubmitted: false
     };
   }
 
@@ -223,127 +296,304 @@ class Index extends react__WEBPACK_IMPORTED_MODULE_1___default.a.Component {
   }
 
   render() {
-    return __jsx("div", {
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 35
-      },
-      __self: this
-    }, __jsx(_components_AppContainer__WEBPACK_IMPORTED_MODULE_2__["default"], {
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 36
-      },
-      __self: this
-    }, __jsx("div", {
-      className: "title-section-wrapper center",
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 37
-      },
-      __self: this
-    }, __jsx("h1", {
-      className: "font-lrg",
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 38
-      },
-      __self: this
-    }, "Serious question."), __jsx("h1", {
-      className: "font-lrg",
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 39
-      },
-      __self: this
-    }, "What would you like explained?"), __jsx("h2", {
-      className: "font-color-grey",
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 40
-      },
-      __self: this
-    }, "Welcome to a project where we listen to your mysteries and then kick off a tournament to explain them.")), __jsx("div", {
-      className: "card-section-wrapper font-sml",
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 42
-      },
-      __self: this
-    }, __jsx("form", {
-      className: "margin-bottom-med",
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 43
-      },
-      __self: this
-    }, __jsx("div", {
-      className: "field-wrap margin-bottom-sml",
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 44
-      },
-      __self: this
-    }, __jsx("label", {
-      className: "how-label",
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 45
-      },
-      __self: this
-    }, "How would you explain"), __jsx("textarea", {
-      onChange: this.handleTopicChange,
-      "data-autoresize": true,
-      rows: "1",
-      type: "text",
-      placeholder: "how does popcorn work",
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 46
-      },
-      __self: this
-    })), __jsx("div", {
-      className: "field-wrap margin-bottom-sml",
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 48
-      },
-      __self: this
-    }, __jsx("label", {
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 49
-      },
-      __self: this
-    }, "to a"), __jsx("textarea", {
-      onChange: this.handleAudienceChange,
-      "data-autoresize": true,
-      rows: "1",
-      type: "text",
-      placeholder: "space alien who has never visited earth",
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 50
-      },
-      __self: this
-    }))), __jsx("div", {
-      onClick: this.handleSubmit,
-      className: "button background-color-purple center",
-      type: "submit",
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 53
-      },
-      __self: this
-    }, "Submit Mystery")), __jsx("img", {
-      id: "bitmoji-image",
-      src: "/images/bitmoji-thinking.png",
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 55
-      },
-      __self: this
-    })));
+    if (this.state.formSubmitted) {
+      return __jsx("div", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 78
+        },
+        __self: this
+      }, __jsx(_components_AppContainer__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 79
+        },
+        __self: this
+      }, __jsx("div", {
+        className: "modal",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 80
+        },
+        __self: this
+      }, __jsx("img", {
+        src: "/images/bitmoji-amazing.png",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 81
+        },
+        __self: this
+      }), __jsx("p", {
+        className: "font-sml font-weight-bold",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 82
+        },
+        __self: this
+      }, "That is a ", __jsx("span", {
+        className: "font-color-purple",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 82
+        },
+        __self: this
+      }, " fantastic"), " mystery. It\u2019s been submitted to global mystery headquarters."), __jsx("div", {
+        className: "button margin-top-med background-color-twitter-blue",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 83
+        },
+        __self: this
+      }, __jsx("svg", {
+        className: "twitter-logo",
+        xmlns: "http://www.w3.org/2000/svg",
+        width: "24",
+        height: "24",
+        fill: "white",
+        viewBox: "0 0 24 24",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 84
+        },
+        __self: this
+      }, __jsx("path", {
+        d: "M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 84
+        },
+        __self: this
+      })), __jsx("p", {
+        className: "margin-left-sml margin-right-sml",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 85
+        },
+        __self: this
+      }, "Share Your Mystery With The Twitterverse")))));
+    } else {
+      return __jsx("div", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 93
+        },
+        __self: this
+      }, __jsx(_components_AppContainer__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 94
+        },
+        __self: this
+      }, !this.state.formIsActive && __jsx("div", {
+        className: "title-section-wrapper center",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 97
+        },
+        __self: this
+      }, __jsx("h1", {
+        className: "font-lrg",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 98
+        },
+        __self: this
+      }, "Serious question."), __jsx("h1", {
+        className: "font-lrg",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 99
+        },
+        __self: this
+      }, "What would you like explained?"), __jsx("h2", {
+        className: "font-color-grey",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 100
+        },
+        __self: this
+      }, "Welcome to a project where we listen to your mysteries and then kick off a tournament to explain them.")), __jsx(ExpandableBox, {
+        onClick: this.handleFormActive,
+        pose: this.state.formIsActive ? 'expanded' : 'contracted',
+        className: "card-section-wrapper font-sml",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 103
+        },
+        __self: this
+      }, __jsx("form", {
+        className: "margin-bottom-med",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 104
+        },
+        __self: this
+      }, __jsx("div", {
+        className: "field-wrap margin-bottom-sml",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 105
+        },
+        __self: this
+      }, __jsx("label", {
+        className: "how-label",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 106
+        },
+        __self: this
+      }, "How would you explain"), __jsx("textarea", {
+        className: "input-with-center-text",
+        value: this.state.topic,
+        onChange: this.handleTopicChange,
+        "data-autoresize": true,
+        rows: "1",
+        type: "text",
+        placeholder: "how does popcorn work",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 107
+        },
+        __self: this
+      })), __jsx("div", {
+        className: "field-wrap margin-bottom-sml",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 109
+        },
+        __self: this
+      }, __jsx("label", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 110
+        },
+        __self: this
+      }, "to a"), __jsx("textarea", {
+        className: "input-with-center-text",
+        value: this.state.audience,
+        onChange: this.handleAudienceChange,
+        "data-autoresize": true,
+        rows: "1",
+        type: "text",
+        placeholder: "space alien who has never visited earth",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 111
+        },
+        __self: this
+      })), this.state.formIsActive && __jsx("div", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 115
+        },
+        __self: this
+      }, __jsx("div", {
+        className: "margin-top-lrg margin-bottom-sml",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 116
+        },
+        __self: this
+      }, __jsx("div", {
+        className: "full-row-width",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 117
+        },
+        __self: this
+      }, __jsx("label", {
+        className: "constrained-width-input",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 117
+        },
+        __self: this
+      }, "Who are you on email:")), __jsx("input", {
+        className: "constrained-width-input",
+        value: this.state.email,
+        onChange: this.handleEmailChange,
+        type: "text",
+        placeholder: "mayor@dani.town",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 118
+        },
+        __self: this
+      })), __jsx("div", {
+        className: "margin-top-med margin-bottom-sml",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 120
+        },
+        __self: this
+      }, __jsx("div", {
+        className: "full-row-width",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 121
+        },
+        __self: this
+      }, __jsx("label", {
+        className: "constrained-width-input",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 121
+        },
+        __self: this
+      }, "Who are you on twitter:")), __jsx("input", {
+        className: "constrained-width-input",
+        value: this.state.twitter,
+        onChange: this.handleTwitterChange,
+        type: "text",
+        placeholder: "@thedanigrant",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 122
+        },
+        __self: this
+      })), __jsx("div", {
+        className: "margin-top-lrg margin-bottom-sml",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 124
+        },
+        __self: this
+      }, __jsx("input", {
+        className: "checkbox",
+        value: this.state.anonymity,
+        onChange: this.handleAnonymityChange,
+        type: "checkbox",
+        checked: !this.state.anonymity,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 125
+        },
+        __self: this
+      }), __jsx("p", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 126
+        },
+        __self: this
+      }, "You can attribute this mystery to me.")))), __jsx("div", {
+        onClick: this.handleSubmit,
+        className: "margin-top-lrg button background-color-purple center",
+        type: "submit",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 131
+        },
+        __self: this
+      }, "Submit Mystery")), __jsx("img", {
+        id: "bitmoji-image",
+        src: "/images/bitmoji-thinking.png",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 133
+        },
+        __self: this
+      })));
+    }
   }
 
 }
@@ -361,6 +611,17 @@ class Index extends react__WEBPACK_IMPORTED_MODULE_1___default.a.Component {
 
 module.exports = __webpack_require__(/*! /Users/danigrant/Projects/globalmysteryinc/pages/index.js */"./pages/index.js");
 
+
+/***/ }),
+
+/***/ "core-js/library/fn/json/stringify":
+/*!****************************************************!*\
+  !*** external "core-js/library/fn/json/stringify" ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("core-js/library/fn/json/stringify");
 
 /***/ }),
 
@@ -383,6 +644,17 @@ module.exports = require("core-js/library/fn/object/define-property");
 /***/ (function(module, exports) {
 
 module.exports = require("react");
+
+/***/ }),
+
+/***/ "react-pose":
+/*!*****************************!*\
+  !*** external "react-pose" ***!
+  \*****************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("react-pose");
 
 /***/ })
 

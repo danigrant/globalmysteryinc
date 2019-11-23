@@ -10,6 +10,7 @@ body, html {
 h1, p {
   margin-top: 0;
   margin-bottom: 0;
+  display: inline-block;
 }
 
 button, input, select, textarea {
@@ -35,6 +36,7 @@ input::placeholder, textarea::placeholder {
 
 label {
   padding-right: 10px;
+  margin-bottom: 15px;
 }
 
 .constrained-width {
@@ -46,6 +48,10 @@ label {
 .font-sml {
   font-size: 32px;
   font-weight: 700;
+}
+
+.font-weight-bold {
+  font-weight: 900;
 }
 
 .font-lrg {
@@ -110,4 +116,28 @@ label {
 
 .margin-bottom-med {
   margin-bottom: 35px;
+}
+
+.margin-top-sml {
+  margin-top: 15px;
+}
+
+.margin-top-med {
+  margin-top: 35px !important;
+}
+
+.margin-top-lrg {
+  margin-top: 55px !important;
+}
+
+.margin-left-sml {
+  margin-left: 15px;
+}
+
+.margin-right-sml {
+  margin-right: 15px;
+}
+
+.full-width {
+  min-width: 100%;
 }
