@@ -8187,7 +8187,7 @@ function (_React$Component) {
           "data-autoresize": true,
           rows: "1",
           type: "text",
-          placeholder: "mean person",
+          placeholder: "angsty twenty something",
           __source: {
             fileName: _jsxFileName,
             lineNumber: 159
@@ -8225,7 +8225,7 @@ function (_React$Component) {
           value: this.state.email,
           onChange: this.handleEmailChange,
           type: "text",
-          placeholder: "mayor@dani.town",
+          placeholder: "you@your.email",
           __source: {
             fileName: _jsxFileName,
             lineNumber: 166
@@ -8257,7 +8257,7 @@ function (_React$Component) {
           value: this.state.twitter,
           onChange: this.handleTwitterChange,
           type: "text",
-          placeholder: "@thedanigrant",
+          placeholder: "@yourtwitter",
           __source: {
             fileName: _jsxFileName,
             lineNumber: 170
