@@ -1,7 +1,7 @@
 const IntroModal = props => {
     return (
       <div className="intro-modal">
-        <i onClick={props.closeIntroModal} className="material-icons intro-modal-close">close_rounded</i>
+        <i onClick={props.closeIntroModal} className="material-icons intro-modal-close link">close_rounded</i>
         <img src={props.data.image} />
         <p className="margin-top-sml font-weight-bold">{props.data.text}</p>
         {

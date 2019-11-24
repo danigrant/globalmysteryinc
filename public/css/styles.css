@@ -193,7 +193,7 @@
   z-index: 3;
 }
 
-.intro-modal-close {
+.intro-modal-close, .close-mystery-form {
   position: absolute;
   right: 10px;
   top: 10px;
@@ -216,7 +216,7 @@
 }
 
 .intro-modal .button {
-  
+
 }
 
 @media only screen and (max-width: 600px) {

@@ -127,6 +127,11 @@ class Index extends React.Component {
       formIsActive: false
     })
   }
+  putFormDown = () => {
+    this.setState({
+      formIsActive: false
+    })
+  }
   updateTwitterLink = () => {
     let baseString = "https://twitter.com/intent/tweet?text="
     let encodedPath = encodeURIComponent(`🕵️‍♀️ Just gave \#globalmysteryinc a mysterious little mystery to solve....how would you explain ${this.state.topic? this.state.topic : "why is the climate changing"} to a ${this.state.audience ? this.state.audience : "mean person" }? globalmysteryinc.com`)
@@ -189,6 +194,10 @@ class Index extends React.Component {
                 <h1 className="font-lrg">What would you like explained?</h1>
                 <h2 className="lg-view font-color-grey">Welcome to a project where we listen to your mysteries and then kick off a tournament to explain them if we can't find the answer.</h2>
               </div>
+            }
+            {
+              this.state.formIsActive &&
+              <i onClick={() => { this.setState({ formIsActive: false }); console.log(this.state.formIsActive)}} className="close-mystery-form material-icons link">close_rounded</i>
             }
             <ExpandableBox onClick={this.handleFormActive} pose={this.state.formIsActive ? 'expanded' : 'contracted'} className="card-section-wrapper font-sml">
               <form className="margin-bottom-med">
