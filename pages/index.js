@@ -46,6 +46,39 @@ const starterModals = [
   }
 ]
 
+const autosuggestedAudiences = [
+  "parent who loves you very much",
+  "aspiring comedian",
+  "mean person",
+  "person you are on a first date with",
+  "out of touch relative",
+  "a toddler with too much energy",
+  "person who lived hundreds of years ago",
+  "former lover",
+  "twenty something with lots to learn",
+  "very wise but also very peculiar kindergardner",
+  "person who has never experienced snow",
+  "drunk uncle",
+  "person you want to have a very short conversation with",
+  "mouse",
+  "poet who only understands things in rhymes",
+  "audience of senior citizens",
+  "nearby group of people waiting for the subway",
+  "person who is hard of hearing",
+  "least patient person",
+  "friend you haven't seen since college study abroad",
+  "close friend who is about to become a parent",
+  "single child",
+  "very privileged human being",
+  "former member of The Beatles",
+  "TV writer on the cast of SNL",
+  "astronaut who hasn't been back to earth in a decade",
+  "Kim Kardashian look-a-like",
+  "person who is in a big hurry",
+  "tall person you meet in the elevator",
+  "shopkeeper who is wondering what you are doing"
+]
+
 class Index extends React.Component {
   constructor(props) {
     super(props)
@@ -148,6 +181,11 @@ class Index extends React.Component {
   closeIntroModal = () => {
     this.setState({ introModalIndex:  this.state.introModals.length + 1 })
   }
+  autosuggestedAudience = () => {
+    this.setState({
+      audience: autosuggestedAudiences[Math.floor(Math.random() * autosuggestedAudiences.length)]
+    })
+  }
   render() {
     if (this.state.formSubmitted) {
       return (
@@ -209,6 +247,7 @@ class Index extends React.Component {
                   <label>to a</label>
                   <textarea className="lg-view input-with-center-text" value={this.state.audience} onChange={this.handleAudienceChange} data-autoresize rows="1" type="text" placeholder="space alien who has never visited earth"></textarea>
                   <textarea className="sm-view input-with-center-text" value={this.state.audience} onChange={this.handleAudienceChange} data-autoresize rows="1" type="text" placeholder="angsty twenty something"></textarea>
+                  <div onClick={this.autosuggestedAudience} className="autosuggest-audience-button"><i className="material-icons link">shuffle_rounded</i></div>
                 </div>
                 {
                   this.state.formIsActive &&
