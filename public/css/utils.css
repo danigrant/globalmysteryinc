@@ -90,6 +90,10 @@ label {
   width: fit-content;
 }
 
+.button, .link {
+  cursor: pointer;
+}
+
 .button:hover, .link:hover {
   filter: brightness(110%);
 }

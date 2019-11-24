@@ -2,6 +2,8 @@ import React from 'react'
 import AppContainer from '../components/AppContainer'
 import posed from 'react-pose';
 import Confetti from 'react-dom-confetti';
+import Overlay from '../components/Overlay'
+import IntroModal from '../components/IntroModal'
 
 const ExpandableBox = posed.div({
   expanded: { marginTop: 0 },
@@ -21,10 +23,35 @@ const confettiConfig = {
   colors: ["#a864fd", "#29cdff", "#78ff44", "#ff718d", "#fdff6a"]
 }
 
+const starterModals = [
+  {
+    "index": 0,
+    "image": "/images/bitmoji-math.jpeg",
+    "text": "Welcome to Global Mystery Inc. We are like a detective agency, but much, much, much geekier."
+  },
+  {
+    "index": 1,
+    "image": "/images/bitmoji-bushes.png",
+    "text": "Here’s how we work: we listen to your mysteries and then we go off and search for the answers."
+  },
+  {
+    "index": 2,
+    "image": "/images/bitmoji-text.jpeg",
+    "text": "You may be called on to help explain someone else's mystery. Or someone may be called on to help explain yours."
+  },
+  {
+    "index": 3,
+    "image": "/images/bitmoji-boom.jpeg",
+    "text": "It's a fun game all about this mysterious little world we mysteriously inhabit."
+  }
+]
+
 class Index extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
+      introModals: starterModals,
+      introModalIndex: 0,
       topic: '',
       audience: '',
       email: '',
@@ -107,6 +134,15 @@ class Index extends React.Component {
       twitterLink: `${baseString}${encodedPath}`
     })
   }
+  nextIntroModal = () => {
+    this.setState({ introModalIndex:  this.state.introModalIndex + 1 })
+  }
+  prevIntroModal = () => {
+    this.setState({ introModalIndex:  this.state.introModalIndex - 1 })
+  }
+  closeIntroModal = () => {
+    this.setState({ introModalIndex:  this.state.introModals.length + 1 })
+  }
   render() {
     if (this.state.formSubmitted) {
       return (
@@ -139,6 +175,13 @@ class Index extends React.Component {
       return (
         <div>
           <AppContainer>
+            {
+              this.state.introModalIndex < this.state.introModals.length &&
+              <div>
+                <Overlay />
+                <IntroModal data={this.state.introModals[this.state.introModalIndex]} nextIntroModal={this.nextIntroModal} prevIntroModal={this.prevIntroModal} closeIntroModal={this.closeIntroModal} />
+              </div>
+            }
             {
               !this.state.formIsActive &&
               <div className="title-section-wrapper center">

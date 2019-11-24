@@ -30,6 +30,111 @@ var AppContainer = function AppContainer(props) {
 
 /***/ }),
 
+/***/ "./components/IntroModal.js":
+/*!**********************************!*\
+  !*** ./components/IntroModal.js ***!
+  \**********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+var _jsxFileName = "/Users/danigrant/Projects/globalmysteryinc/components/IntroModal.js";
+
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+var IntroModal = function IntroModal(props) {
+  return __jsx("div", {
+    className: "intro-modal",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 3
+    },
+    __self: this
+  }, __jsx("i", {
+    onClick: props.closeIntroModal,
+    className: "material-icons intro-modal-close",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 4
+    },
+    __self: this
+  }, "close_rounded"), __jsx("img", {
+    src: props.data.image,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 5
+    },
+    __self: this
+  }), __jsx("p", {
+    className: "margin-top-sml font-weight-bold",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 6
+    },
+    __self: this
+  }, props.data.text), __jsx("div", {
+    className: "nativation-icons",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 7
+    },
+    __self: this
+  }, props.data.index != 0 && __jsx("i", {
+    onClick: props.prevIntroModal,
+    className: "material-icons link intro-modal-navigate-before",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 10
+    },
+    __self: this
+  }, "navigate_before"), __jsx("i", {
+    onClick: props.nextIntroModal,
+    className: "material-icons link intro-modal-navigate-next",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 12
+    },
+    __self: this
+  }, "navigate_next")));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (IntroModal);
+
+/***/ }),
+
+/***/ "./components/Overlay.js":
+/*!*******************************!*\
+  !*** ./components/Overlay.js ***!
+  \*******************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+var _jsxFileName = "/Users/danigrant/Projects/globalmysteryinc/components/Overlay.js";
+
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+var Overlay = function Overlay(props) {
+  return __jsx("div", {
+    className: "overlay",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 3
+    },
+    __self: this
+  });
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Overlay);
+
+/***/ }),
+
 /***/ "./node_modules/@babel/runtime-corejs2/core-js/json/stringify.js":
 /*!***********************************************************************!*\
   !*** ./node_modules/@babel/runtime-corejs2/core-js/json/stringify.js ***!
@@ -7770,6 +7875,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_pose__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react-pose */ "./node_modules/react-pose/dist/react-pose.es.js");
 /* harmony import */ var react_dom_confetti__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! react-dom-confetti */ "./node_modules/react-dom-confetti/lib/confetti.js");
 /* harmony import */ var react_dom_confetti__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(react_dom_confetti__WEBPACK_IMPORTED_MODULE_11__);
+/* harmony import */ var _components_Overlay__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../components/Overlay */ "./components/Overlay.js");
+/* harmony import */ var _components_IntroModal__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../components/IntroModal */ "./components/IntroModal.js");
 
 
 
@@ -7780,6 +7887,8 @@ __webpack_require__.r(__webpack_exports__);
 
 var _jsxFileName = "/Users/danigrant/Projects/globalmysteryinc/pages/index.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement;
+
+
 
 
 
@@ -7804,6 +7913,23 @@ var confettiConfig = {
   height: "10px",
   colors: ["#a864fd", "#29cdff", "#78ff44", "#ff718d", "#fdff6a"]
 };
+var starterModals = [{
+  "index": 0,
+  "image": "/images/bitmoji-math.jpeg",
+  "text": "Welcome to Global Mystery Inc. We are like a detective agency, but much, much, much geekier."
+}, {
+  "index": 1,
+  "image": "/images/bitmoji-bushes.png",
+  "text": "Here’s how we work: we listen to your mysteries and then we go off and search for the answers."
+}, {
+  "index": 2,
+  "image": "/images/bitmoji-text.jpeg",
+  "text": "You may be called on to help explain someone else's mystery. Or someone may be called on to help explain yours."
+}, {
+  "index": 3,
+  "image": "/images/bitmoji-boom.jpeg",
+  "text": "It's a fun game all about this mysterious little world we mysteriously inhabit."
+}];
 
 var Index =
 /*#__PURE__*/
@@ -7906,7 +8032,27 @@ function (_React$Component) {
       });
     });
 
+    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_7__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_5__["default"])(_this), "nextIntroModal", function () {
+      _this.setState({
+        introModalIndex: _this.state.introModalIndex + 1
+      });
+    });
+
+    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_7__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_5__["default"])(_this), "prevIntroModal", function () {
+      _this.setState({
+        introModalIndex: _this.state.introModalIndex - 1
+      });
+    });
+
+    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_7__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_5__["default"])(_this), "closeIntroModal", function () {
+      _this.setState({
+        introModalIndex: _this.state.introModals.length + 1
+      });
+    });
+
     _this.state = {
+      introModals: starterModals,
+      introModalIndex: 0,
       topic: '',
       audience: '',
       email: '',
@@ -7940,19 +8086,19 @@ function (_React$Component) {
         return __jsx("div", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 113
+            lineNumber: 149
           },
           __self: this
         }, __jsx(_components_AppContainer__WEBPACK_IMPORTED_MODULE_9__["default"], {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 114
+            lineNumber: 150
           },
           __self: this
         }, __jsx("div", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 115
+            lineNumber: 151
           },
           __self: this
         }, __jsx(react_dom_confetti__WEBPACK_IMPORTED_MODULE_11___default.a, {
@@ -7961,35 +8107,35 @@ function (_React$Component) {
           config: confettiConfig,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 116
+            lineNumber: 152
           },
           __self: this
         })), __jsx("div", {
           className: "modal",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 118
+            lineNumber: 154
           },
           __self: this
         }, __jsx("img", {
           src: "/images/bitmoji-amazing.png",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 119
+            lineNumber: 155
           },
           __self: this
         }), __jsx("p", {
           className: "font-sml font-weight-bold margin-top-sml",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 120
+            lineNumber: 156
           },
           __self: this
         }, "That is a ", __jsx("span", {
           className: "font-color-purple",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 120
+            lineNumber: 156
           },
           __self: this
         }, " fantastic"), " mystery. It\u2019s been submitted to global mystery headquarters."), __jsx("a", {
@@ -7998,14 +8144,14 @@ function (_React$Component) {
           target: "_blank",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 121
+            lineNumber: 157
           },
           __self: this
         }, __jsx("div", {
           className: "button margin-top-med background-color-twitter-blue",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 122
+            lineNumber: 158
           },
           __self: this
         }, __jsx("svg", {
@@ -8017,35 +8163,35 @@ function (_React$Component) {
           viewBox: "0 0 24 24",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 123
+            lineNumber: 159
           },
           __self: this
         }, __jsx("path", {
           d: "M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 123
+            lineNumber: 159
           },
           __self: this
         })), __jsx("p", {
           className: "margin-left-sml margin-right-sml",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 124
+            lineNumber: 160
           },
           __self: this
         }, __jsx("span", {
           className: "lg-view",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 125
+            lineNumber: 161
           },
           __self: this
         }, "Share Your Mystery With The Twitterverse"), __jsx("span", {
           className: "sm-view",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 126
+            lineNumber: 162
           },
           __self: this
         }, "Share Mystery With Twitter")))), __jsx("div", {
@@ -8053,20 +8199,20 @@ function (_React$Component) {
           className: "play-again link",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 130
+            lineNumber: 166
           },
           __self: this
         }, __jsx("i", {
           className: "material-icons",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 131
+            lineNumber: 167
           },
           __self: this
         }, "replay_rounded"), __jsx("p", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 132
+            lineNumber: 168
           },
           __self: this
         }, "Have another mystery?")))));
@@ -8074,41 +8220,63 @@ function (_React$Component) {
         return __jsx("div", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 140
+            lineNumber: 176
           },
           __self: this
         }, __jsx(_components_AppContainer__WEBPACK_IMPORTED_MODULE_9__["default"], {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 141
+            lineNumber: 177
           },
           __self: this
-        }, !this.state.formIsActive && __jsx("div", {
+        }, this.state.introModalIndex < this.state.introModals.length && __jsx("div", {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 180
+          },
+          __self: this
+        }, __jsx(_components_Overlay__WEBPACK_IMPORTED_MODULE_12__["default"], {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 181
+          },
+          __self: this
+        }), __jsx(_components_IntroModal__WEBPACK_IMPORTED_MODULE_13__["default"], {
+          data: this.state.introModals[this.state.introModalIndex],
+          nextIntroModal: this.nextIntroModal,
+          prevIntroModal: this.prevIntroModal,
+          closeIntroModal: this.closeIntroModal,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 182
+          },
+          __self: this
+        })), !this.state.formIsActive && __jsx("div", {
           className: "title-section-wrapper center",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 144
+            lineNumber: 187
           },
           __self: this
         }, __jsx("h1", {
           className: "font-lrg",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 145
+            lineNumber: 188
           },
           __self: this
         }, "Serious question."), __jsx("h1", {
           className: "font-lrg",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 146
+            lineNumber: 189
           },
           __self: this
         }, "What would you like explained?"), __jsx("h2", {
           className: "lg-view font-color-grey",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 147
+            lineNumber: 190
           },
           __self: this
         }, "Welcome to a project where we listen to your mysteries and then kick off a tournament to explain them.")), __jsx(ExpandableBox, {
@@ -8117,28 +8285,28 @@ function (_React$Component) {
           className: "card-section-wrapper font-sml",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 150
+            lineNumber: 193
           },
           __self: this
         }, __jsx("form", {
           className: "margin-bottom-med",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 151
+            lineNumber: 194
           },
           __self: this
         }, __jsx("div", {
           className: "field-wrap margin-bottom-sml",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 152
+            lineNumber: 195
           },
           __self: this
         }, __jsx("label", {
           className: "how-label",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 153
+            lineNumber: 196
           },
           __self: this
         }, "How would you explain"), __jsx("textarea", {
@@ -8151,20 +8319,20 @@ function (_React$Component) {
           placeholder: "how does popcorn work",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 154
+            lineNumber: 197
           },
           __self: this
         })), __jsx("div", {
           className: "field-wrap margin-bottom-sml",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 156
+            lineNumber: 199
           },
           __self: this
         }, __jsx("label", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 157
+            lineNumber: 200
           },
           __self: this
         }, "to a"), __jsx("textarea", {
@@ -8177,7 +8345,7 @@ function (_React$Component) {
           placeholder: "space alien who has never visited earth",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 158
+            lineNumber: 201
           },
           __self: this
         }), __jsx("textarea", {
@@ -8190,34 +8358,34 @@ function (_React$Component) {
           placeholder: "angsty twenty something",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 159
+            lineNumber: 202
           },
           __self: this
         })), this.state.formIsActive && __jsx("div", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 163
+            lineNumber: 206
           },
           __self: this
         }, __jsx("div", {
           className: "margin-top-lrg margin-bottom-sml",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 164
+            lineNumber: 207
           },
           __self: this
         }, __jsx("div", {
           className: "full-row-width",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 165
+            lineNumber: 208
           },
           __self: this
         }, __jsx("label", {
           className: "constrained-width-input",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 165
+            lineNumber: 208
           },
           __self: this
         }, "Who are you on email:")), __jsx("input", {
@@ -8228,28 +8396,28 @@ function (_React$Component) {
           placeholder: "you@your.email",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 166
+            lineNumber: 209
           },
           __self: this
         })), __jsx("div", {
           className: "margin-top-med margin-bottom-sml",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 168
+            lineNumber: 211
           },
           __self: this
         }, __jsx("div", {
           className: "full-row-width",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 169
+            lineNumber: 212
           },
           __self: this
         }, __jsx("label", {
           className: "constrained-width-input",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 169
+            lineNumber: 212
           },
           __self: this
         }, "Who are you on twitter:")), __jsx("input", {
@@ -8260,14 +8428,14 @@ function (_React$Component) {
           placeholder: "@yourtwitter",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 170
+            lineNumber: 213
           },
           __self: this
         })), __jsx("div", {
           className: "margin-top-lrg margin-bottom-sml",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 172
+            lineNumber: 215
           },
           __self: this
         }, __jsx("input", {
@@ -8278,14 +8446,14 @@ function (_React$Component) {
           checked: !this.state.anonymity,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 173
+            lineNumber: 216
           },
           __self: this
         }), __jsx("p", {
           id: "checkbox-desc",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 174
+            lineNumber: 217
           },
           __self: this
         }, "You can attribute this mystery to me.")))), __jsx("div", {
@@ -8294,7 +8462,7 @@ function (_React$Component) {
           type: "submit",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 179
+            lineNumber: 222
           },
           __self: this
         }, "Submit Mystery")), !this.state.formIsActive && __jsx("img", {
@@ -8303,7 +8471,7 @@ function (_React$Component) {
           src: "/images/bitmoji-thinking.png",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 183
+            lineNumber: 226
           },
           __self: this
         }), __jsx("img", {
@@ -8312,7 +8480,7 @@ function (_React$Component) {
           src: "/images/bitmoji-thinking.png",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 185
+            lineNumber: 228
           },
           __self: this
         })));
