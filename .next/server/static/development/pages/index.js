@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 3);
+/******/ 	return __webpack_require__(__webpack_require__.s = 4);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -237,12 +237,14 @@ class Index extends react__WEBPACK_IMPORTED_MODULE_2___default.a.Component {
       this.setState({
         topic: e.target.value
       });
+      this.updateTwitterLink();
     });
 
     Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__["default"])(this, "handleAudienceChange", e => {
       this.setState({
         audience: e.target.value
       });
+      this.updateTwitterLink();
     });
 
     Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__["default"])(this, "handleEmailChange", e => {
@@ -301,6 +303,14 @@ class Index extends react__WEBPACK_IMPORTED_MODULE_2___default.a.Component {
       });
     });
 
+    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__["default"])(this, "updateTwitterLink", () => {
+      let baseString = "https://twitter.com/intent/tweet?text=";
+      let encodedPath = encodeURIComponent(`🕵️‍♀️ Just gave \#globalmysteryinc a mysterious little mystery to solve....how would you explain ${this.state.topic ? this.state.topic : "why is the climate changing"} to a ${this.state.audience ? this.state.audience : "mean person"}? globalmysteryinc.com`);
+      this.setState({
+        twitterLink: `${baseString}${encodedPath}`
+      });
+    });
+
     this.state = {
       topic: '',
       audience: '',
@@ -309,7 +319,8 @@ class Index extends react__WEBPACK_IMPORTED_MODULE_2___default.a.Component {
       anonymity: false,
       formIsActive: false,
       formSubmitted: false,
-      confetti: false
+      confetti: false,
+      twitterLink: "https://twitter.com/intent/tweet?text="
     };
   }
 
@@ -330,19 +341,19 @@ class Index extends react__WEBPACK_IMPORTED_MODULE_2___default.a.Component {
       return __jsx("div", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 103
+          lineNumber: 113
         },
         __self: this
       }, __jsx(_components_AppContainer__WEBPACK_IMPORTED_MODULE_3__["default"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 104
+          lineNumber: 114
         },
         __self: this
       }, __jsx("div", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 105
+          lineNumber: 115
         },
         __self: this
       }, __jsx(react_dom_confetti__WEBPACK_IMPORTED_MODULE_5___default.a, {
@@ -351,42 +362,51 @@ class Index extends react__WEBPACK_IMPORTED_MODULE_2___default.a.Component {
         config: confettiConfig,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 106
+          lineNumber: 116
         },
         __self: this
       })), __jsx("div", {
         className: "modal",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 108
+          lineNumber: 118
         },
         __self: this
       }, __jsx("img", {
         src: "/images/bitmoji-amazing.png",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 109
+          lineNumber: 119
         },
         __self: this
       }), __jsx("p", {
         className: "font-sml font-weight-bold margin-top-sml",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 110
+          lineNumber: 120
         },
         __self: this
       }, "That is a ", __jsx("span", {
         className: "font-color-purple",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 110
+          lineNumber: 120
         },
         __self: this
-      }, " fantastic"), " mystery. It\u2019s been submitted to global mystery headquarters."), __jsx("div", {
+      }, " fantastic"), " mystery. It\u2019s been submitted to global mystery headquarters."), __jsx("a", {
+        onClick: this.handleReplay,
+        href: this.state.twitterLink,
+        target: "_blank",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 121
+        },
+        __self: this
+      }, __jsx("div", {
         className: "button margin-top-med background-color-twitter-blue",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 111
+          lineNumber: 122
         },
         __self: this
       }, __jsx("svg", {
@@ -398,56 +418,56 @@ class Index extends react__WEBPACK_IMPORTED_MODULE_2___default.a.Component {
         viewBox: "0 0 24 24",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 112
+          lineNumber: 123
         },
         __self: this
       }, __jsx("path", {
         d: "M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 112
+          lineNumber: 123
         },
         __self: this
       })), __jsx("p", {
         className: "margin-left-sml margin-right-sml",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 113
+          lineNumber: 124
         },
         __self: this
       }, __jsx("span", {
         className: "lg-view",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 114
+          lineNumber: 125
         },
         __self: this
       }, "Share Your Mystery With The Twitterverse"), __jsx("span", {
         className: "sm-view",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 115
+          lineNumber: 126
         },
         __self: this
-      }, "Share Mystery With Twitter"))), __jsx("div", {
+      }, "Share Mystery With Twitter")))), __jsx("div", {
         onClick: this.handleReplay,
         className: "play-again link margin-top-med font-color-grey",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 118
+          lineNumber: 130
         },
         __self: this
       }, __jsx("i", {
         className: "material-icons",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 119
+          lineNumber: 131
         },
         __self: this
       }, "replay_rounded"), __jsx("p", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 120
+          lineNumber: 132
         },
         __self: this
       }, "Have another mystery?")))));
@@ -455,41 +475,41 @@ class Index extends react__WEBPACK_IMPORTED_MODULE_2___default.a.Component {
       return __jsx("div", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 128
+          lineNumber: 140
         },
         __self: this
       }, __jsx(_components_AppContainer__WEBPACK_IMPORTED_MODULE_3__["default"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 129
+          lineNumber: 141
         },
         __self: this
       }, !this.state.formIsActive && __jsx("div", {
         className: "title-section-wrapper center",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 132
+          lineNumber: 144
         },
         __self: this
       }, __jsx("h1", {
         className: "font-lrg",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 133
+          lineNumber: 145
         },
         __self: this
       }, "Serious question."), __jsx("h1", {
         className: "font-lrg",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 134
+          lineNumber: 146
         },
         __self: this
       }, "What would you like explained?"), __jsx("h2", {
         className: "font-color-grey",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 135
+          lineNumber: 147
         },
         __self: this
       }, "Welcome to a project where we listen to your mysteries and then kick off a tournament to explain them.")), __jsx(ExpandableBox, {
@@ -498,28 +518,28 @@ class Index extends react__WEBPACK_IMPORTED_MODULE_2___default.a.Component {
         className: "card-section-wrapper font-sml",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 138
+          lineNumber: 150
         },
         __self: this
       }, __jsx("form", {
         className: "margin-bottom-med",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 139
+          lineNumber: 151
         },
         __self: this
       }, __jsx("div", {
         className: "field-wrap margin-bottom-sml",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 140
+          lineNumber: 152
         },
         __self: this
       }, __jsx("label", {
         className: "how-label",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 141
+          lineNumber: 153
         },
         __self: this
       }, "How would you explain"), __jsx("textarea", {
@@ -532,20 +552,20 @@ class Index extends react__WEBPACK_IMPORTED_MODULE_2___default.a.Component {
         placeholder: "how does popcorn work",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 142
+          lineNumber: 154
         },
         __self: this
       })), __jsx("div", {
         className: "field-wrap margin-bottom-sml",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 144
+          lineNumber: 156
         },
         __self: this
       }, __jsx("label", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 145
+          lineNumber: 157
         },
         __self: this
       }, "to a"), __jsx("textarea", {
@@ -558,34 +578,34 @@ class Index extends react__WEBPACK_IMPORTED_MODULE_2___default.a.Component {
         placeholder: "space alien who has never visited earth",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 146
+          lineNumber: 158
         },
         __self: this
       })), this.state.formIsActive && __jsx("div", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 150
+          lineNumber: 162
         },
         __self: this
       }, __jsx("div", {
         className: "margin-top-lrg margin-bottom-sml",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 151
+          lineNumber: 163
         },
         __self: this
       }, __jsx("div", {
         className: "full-row-width",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 152
+          lineNumber: 164
         },
         __self: this
       }, __jsx("label", {
         className: "constrained-width-input",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 152
+          lineNumber: 164
         },
         __self: this
       }, "Who are you on email:")), __jsx("input", {
@@ -596,28 +616,28 @@ class Index extends react__WEBPACK_IMPORTED_MODULE_2___default.a.Component {
         placeholder: "mayor@dani.town",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 153
+          lineNumber: 165
         },
         __self: this
       })), __jsx("div", {
         className: "margin-top-med margin-bottom-sml",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 155
+          lineNumber: 167
         },
         __self: this
       }, __jsx("div", {
         className: "full-row-width",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 156
+          lineNumber: 168
         },
         __self: this
       }, __jsx("label", {
         className: "constrained-width-input",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 156
+          lineNumber: 168
         },
         __self: this
       }, "Who are you on twitter:")), __jsx("input", {
@@ -628,14 +648,14 @@ class Index extends react__WEBPACK_IMPORTED_MODULE_2___default.a.Component {
         placeholder: "@thedanigrant",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 157
+          lineNumber: 169
         },
         __self: this
       })), __jsx("div", {
         className: "margin-top-lrg margin-bottom-sml",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 159
+          lineNumber: 171
         },
         __self: this
       }, __jsx("input", {
@@ -646,13 +666,13 @@ class Index extends react__WEBPACK_IMPORTED_MODULE_2___default.a.Component {
         checked: !this.state.anonymity,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 160
+          lineNumber: 172
         },
         __self: this
       }), __jsx("p", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 161
+          lineNumber: 173
         },
         __self: this
       }, "You can attribute this mystery to me.")))), __jsx("div", {
@@ -661,7 +681,7 @@ class Index extends react__WEBPACK_IMPORTED_MODULE_2___default.a.Component {
         type: "submit",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 166
+          lineNumber: 178
         },
         __self: this
       }, "Submit Mystery")), __jsx("img", {
@@ -669,7 +689,7 @@ class Index extends react__WEBPACK_IMPORTED_MODULE_2___default.a.Component {
         src: "/images/bitmoji-thinking.png",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 168
+          lineNumber: 180
         },
         __self: this
       })));
@@ -682,7 +702,7 @@ class Index extends react__WEBPACK_IMPORTED_MODULE_2___default.a.Component {
 
 /***/ }),
 
-/***/ 3:
+/***/ 4:
 /*!******************************!*\
   !*** multi ./pages/index.js ***!
   \******************************/
