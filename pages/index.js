@@ -188,6 +188,13 @@ class Index extends React.Component {
       }
     })
   }
+  aOrAn = () => {
+    if (!this.state.audience.length) {
+      return "a"
+    } else {
+      return /[aeiou]/.test(this.state.audience.toLowerCase().charAt(0)) ? "an" : "a"
+    }
+  }
   render() {
     if (this.state.formSubmitted) {
       return (
@@ -246,7 +253,7 @@ class Index extends React.Component {
                   <textarea className="input-with-center-text" value={this.state.topic} onChange={this.handleTopicChange} data-autoresize rows="1" type="text" placeholder="how does popcorn work"></textarea>
                 </div>
                 <div className="field-wrap margin-bottom-sml">
-                  <label>to a</label>
+                  <label>to {/[aeiou]/.test(this.state.audience.toLowerCase().charAt(0)) ? "an" : "a"}</label>
                   <textarea className="lg-view input-with-center-text" value={this.state.audience} onChange={this.handleAudienceChange} data-autoresize rows={this.state.audience.length > 46 ? 2 : 1} type="text" placeholder="space alien who has never visited earth"></textarea>
                   <textarea className="sm-view input-with-center-text" value={this.state.audience} onChange={this.handleAudienceChange} data-autoresize rows={this.state.audience.length > 21 && this.state.audience.length < 38 ? 2 : this.state.audience.length > 37 ? 3 : 1} type="text" placeholder="angsty twenty something"></textarea>
                   <div onClick={this.autosuggestedAudience} className="autosuggest-audience-button"><i className="material-icons link">shuffle_rounded</i></div>
