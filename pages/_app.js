@@ -11,6 +11,9 @@ class GlobalMysteryInc extends App {
     return (
       <div>
         <Head>
+          <title>Global Mystery Inc.</title>
+          <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+          <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
           <link href="https://fonts.googleapis.com/css?family=Nunito:700,800,900&display=swap" rel="stylesheet" />
           <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
           <link rel="stylesheet" href="/css/utils.css" />
