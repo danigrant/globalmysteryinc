@@ -7,6 +7,7 @@ body, html {
   font-family: Nunito;
   width: inherit;
   overflow-x: hidden;
+  overflow-y: scroll; 
 }
 
 h1, p {
