@@ -24,6 +24,7 @@ button, input, select, textarea {
 
 input, textarea {
   border: none;
+  border-radius: 0;
   border-bottom: 3px solid black;
   color: #AB96FF;
 }
@@ -126,7 +127,7 @@ label {
 }
 
 .margin-top-sml {
-  margin-top: 15px;
+  margin-top: 15px !important;
 }
 
 .margin-top-med {

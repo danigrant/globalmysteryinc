@@ -215,6 +215,10 @@
   right: 10px;
 }
 
+.intro-modal .button {
+  
+}
+
 @media only screen and (max-width: 600px) {
   .intro-modal {
     padding: 30px;

@@ -168,11 +168,19 @@ const IntroModal = props => {
       lineNumber: 6
     },
     __self: undefined
-  }, props.data.text), __jsx("div", {
+  }, props.data.text), props.data.index == 3 && __jsx("div", {
+    onClick: props.closeIntroModal,
+    className: "button background-color-purple center margin-top-sml",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 9
+    },
+    __self: undefined
+  }, "Let's go!"), __jsx("div", {
     className: "nativation-icons",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 7
+      lineNumber: 11
     },
     __self: undefined
   }, props.data.index != 0 && __jsx("i", {
@@ -180,15 +188,15 @@ const IntroModal = props => {
     className: "material-icons link intro-modal-navigate-before",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 10
+      lineNumber: 14
     },
     __self: undefined
-  }, "navigate_before"), __jsx("i", {
+  }, "navigate_before"), props.data.index != 3 && __jsx("i", {
     onClick: props.nextIntroModal,
     className: "material-icons link intro-modal-navigate-next",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 12
+      lineNumber: 18
     },
     __self: undefined
   }, "navigate_next")));
@@ -346,7 +354,7 @@ const starterModals = [{
 }, {
   "index": 3,
   "image": "/images/bitmoji-boom.jpeg",
-  "text": "It's a fun game all about this mysterious little world we mysteriously inhabit."
+  "text": "It's a fun game all about this mysterious little world we inhabit."
 }];
 
 class Index extends react__WEBPACK_IMPORTED_MODULE_2___default.a.Component {
@@ -653,7 +661,7 @@ class Index extends react__WEBPACK_IMPORTED_MODULE_2___default.a.Component {
         },
         __self: this
       })), !this.state.formIsActive && __jsx("div", {
-        className: "title-section-wrapper center",
+        className: "title-section-wrapper center margin-top-sml",
         __source: {
           fileName: _jsxFileName,
           lineNumber: 187
@@ -680,7 +688,7 @@ class Index extends react__WEBPACK_IMPORTED_MODULE_2___default.a.Component {
           lineNumber: 190
         },
         __self: this
-      }, "Welcome to a project where we listen to your mysteries and then kick off a tournament to explain them.")), __jsx(ExpandableBox, {
+      }, "Welcome to a project where we listen to your mysteries and then kick off a tournament to explain them if we can't find the answer.")), __jsx(ExpandableBox, {
         onClick: this.handleFormActive,
         pose: this.state.formIsActive ? 'expanded' : 'contracted',
         className: "card-section-wrapper font-sml",

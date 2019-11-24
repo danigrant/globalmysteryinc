@@ -42,7 +42,7 @@ const starterModals = [
   {
     "index": 3,
     "image": "/images/bitmoji-boom.jpeg",
-    "text": "It's a fun game all about this mysterious little world we mysteriously inhabit."
+    "text": "It's a fun game all about this mysterious little world we inhabit."
   }
 ]
 
@@ -184,10 +184,10 @@ class Index extends React.Component {
             }
             {
               !this.state.formIsActive &&
-              <div className="title-section-wrapper center">
+              <div className="title-section-wrapper center margin-top-sml">
                 <h1 className="font-lrg">Serious question.</h1>
                 <h1 className="font-lrg">What would you like explained?</h1>
-                <h2 className="lg-view font-color-grey">Welcome to a project where we listen to your mysteries and then kick off a tournament to explain them.</h2>
+                <h2 className="lg-view font-color-grey">Welcome to a project where we listen to your mysteries and then kick off a tournament to explain them if we can't find the answer.</h2>
               </div>
             }
             <ExpandableBox onClick={this.handleFormActive} pose={this.state.formIsActive ? 'expanded' : 'contracted'} className="card-section-wrapper font-sml">
