@@ -120,14 +120,14 @@ class Index extends React.Component {
               <p className="font-sml font-weight-bold margin-top-sml">That is a <span className="font-color-purple"> fantastic</span> mystery. It’s been submitted to global mystery headquarters.</p>
               <a onClick={this.handleReplay} href={this.state.twitterLink} target="_blank">
                 <div className="button margin-top-med background-color-twitter-blue">
-                  <svg className="twitter-logo" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="white" viewBox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg>
+                  <svg className="twitter-logo" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="white" viewBox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg>
                   <p className="margin-left-sml margin-right-sml">
                     <span className="lg-view">Share Your Mystery With The Twitterverse</span>
                     <span className="sm-view">Share Mystery With Twitter</span>
                   </p>
                 </div>
               </a>
-              <div onClick={this.handleReplay} className="play-again link margin-top-med font-color-grey">
+              <div onClick={this.handleReplay} className="play-again link">
                 <i className="material-icons">replay_rounded</i>
                 <p>Have another mystery?</p>
               </div>
@@ -144,7 +144,7 @@ class Index extends React.Component {
               <div className="title-section-wrapper center">
                 <h1 className="font-lrg">Serious question.</h1>
                 <h1 className="font-lrg">What would you like explained?</h1>
-                <h2 className="font-color-grey">Welcome to a project where we listen to your mysteries and then kick off a tournament to explain them.</h2>
+                <h2 className="lg-view font-color-grey">Welcome to a project where we listen to your mysteries and then kick off a tournament to explain them.</h2>
               </div>
             }
             <ExpandableBox onClick={this.handleFormActive} pose={this.state.formIsActive ? 'expanded' : 'contracted'} className="card-section-wrapper font-sml">
@@ -155,7 +155,8 @@ class Index extends React.Component {
                 </div>
                 <div className="field-wrap margin-bottom-sml">
                   <label>to a</label>
-                  <textarea className="input-with-center-text" value={this.state.audience} onChange={this.handleAudienceChange} data-autoresize rows="1" type="text" placeholder="space alien who has never visited earth"></textarea>
+                  <textarea className="lg-view input-with-center-text" value={this.state.audience} onChange={this.handleAudienceChange} data-autoresize rows="1" type="text" placeholder="space alien who has never visited earth"></textarea>
+                  <textarea className="sm-view input-with-center-text" value={this.state.audience} onChange={this.handleAudienceChange} data-autoresize rows="1" type="text" placeholder="mean person"></textarea>
                 </div>
                 {
                   this.state.formIsActive &&
@@ -170,14 +171,18 @@ class Index extends React.Component {
                     </div>
                     <div className="margin-top-lrg margin-bottom-sml">
                       <input className="checkbox" value={this.state.anonymity} onChange={this.handleAnonymityChange} type="checkbox" checked={!this.state.anonymity} />
-                      <p>You can attribute this mystery to me.</p>
+                      <p id="checkbox-desc">You can attribute this mystery to me.</p>
                     </div>
                   </div>
                 }
               </form>
               <div onClick={this.handleSubmit} className="margin-top-lrg button background-color-purple center" type="submit">Submit Mystery</div>
             </ExpandableBox>
-            <img id="bitmoji-image" src="/images/bitmoji-thinking.png" />
+            {
+              !this.state.formIsActive &&
+              <img className="sm-view" id="bitmoji-image" src="/images/bitmoji-thinking.png" />
+            }
+            <img className="lg-view" id="bitmoji-image" src="/images/bitmoji-thinking.png" />
           </AppContainer>
         </div>
       )

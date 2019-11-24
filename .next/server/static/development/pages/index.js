@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 4);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -412,8 +412,8 @@ class Index extends react__WEBPACK_IMPORTED_MODULE_2___default.a.Component {
       }, __jsx("svg", {
         className: "twitter-logo",
         xmlns: "http://www.w3.org/2000/svg",
-        width: "24",
-        height: "24",
+        width: "20",
+        height: "20",
         fill: "white",
         viewBox: "0 0 24 24",
         __source: {
@@ -451,7 +451,7 @@ class Index extends react__WEBPACK_IMPORTED_MODULE_2___default.a.Component {
         __self: this
       }, "Share Mystery With Twitter")))), __jsx("div", {
         onClick: this.handleReplay,
-        className: "play-again link margin-top-med font-color-grey",
+        className: "play-again link",
         __source: {
           fileName: _jsxFileName,
           lineNumber: 130
@@ -506,7 +506,7 @@ class Index extends react__WEBPACK_IMPORTED_MODULE_2___default.a.Component {
         },
         __self: this
       }, "What would you like explained?"), __jsx("h2", {
-        className: "font-color-grey",
+        className: "lg-view font-color-grey",
         __source: {
           fileName: _jsxFileName,
           lineNumber: 147
@@ -569,7 +569,7 @@ class Index extends react__WEBPACK_IMPORTED_MODULE_2___default.a.Component {
         },
         __self: this
       }, "to a"), __jsx("textarea", {
-        className: "input-with-center-text",
+        className: "lg-view input-with-center-text",
         value: this.state.audience,
         onChange: this.handleAudienceChange,
         "data-autoresize": true,
@@ -581,31 +581,44 @@ class Index extends react__WEBPACK_IMPORTED_MODULE_2___default.a.Component {
           lineNumber: 158
         },
         __self: this
-      })), this.state.formIsActive && __jsx("div", {
+      }), __jsx("textarea", {
+        className: "sm-view input-with-center-text",
+        value: this.state.audience,
+        onChange: this.handleAudienceChange,
+        "data-autoresize": true,
+        rows: "1",
+        type: "text",
+        placeholder: "mean person",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 162
+          lineNumber: 159
         },
         __self: this
-      }, __jsx("div", {
-        className: "margin-top-lrg margin-bottom-sml",
+      })), this.state.formIsActive && __jsx("div", {
         __source: {
           fileName: _jsxFileName,
           lineNumber: 163
         },
         __self: this
       }, __jsx("div", {
-        className: "full-row-width",
+        className: "margin-top-lrg margin-bottom-sml",
         __source: {
           fileName: _jsxFileName,
           lineNumber: 164
+        },
+        __self: this
+      }, __jsx("div", {
+        className: "full-row-width",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 165
         },
         __self: this
       }, __jsx("label", {
         className: "constrained-width-input",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 164
+          lineNumber: 165
         },
         __self: this
       }, "Who are you on email:")), __jsx("input", {
@@ -616,28 +629,28 @@ class Index extends react__WEBPACK_IMPORTED_MODULE_2___default.a.Component {
         placeholder: "mayor@dani.town",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 165
+          lineNumber: 166
         },
         __self: this
       })), __jsx("div", {
         className: "margin-top-med margin-bottom-sml",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 167
+          lineNumber: 168
         },
         __self: this
       }, __jsx("div", {
         className: "full-row-width",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 168
+          lineNumber: 169
         },
         __self: this
       }, __jsx("label", {
         className: "constrained-width-input",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 168
+          lineNumber: 169
         },
         __self: this
       }, "Who are you on twitter:")), __jsx("input", {
@@ -648,14 +661,14 @@ class Index extends react__WEBPACK_IMPORTED_MODULE_2___default.a.Component {
         placeholder: "@thedanigrant",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 169
+          lineNumber: 170
         },
         __self: this
       })), __jsx("div", {
         className: "margin-top-lrg margin-bottom-sml",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 171
+          lineNumber: 172
         },
         __self: this
       }, __jsx("input", {
@@ -666,13 +679,14 @@ class Index extends react__WEBPACK_IMPORTED_MODULE_2___default.a.Component {
         checked: !this.state.anonymity,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 172
+          lineNumber: 173
         },
         __self: this
       }), __jsx("p", {
+        id: "checkbox-desc",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 173
+          lineNumber: 174
         },
         __self: this
       }, "You can attribute this mystery to me.")))), __jsx("div", {
@@ -681,15 +695,25 @@ class Index extends react__WEBPACK_IMPORTED_MODULE_2___default.a.Component {
         type: "submit",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 178
+          lineNumber: 179
         },
         __self: this
-      }, "Submit Mystery")), __jsx("img", {
+      }, "Submit Mystery")), !this.state.formIsActive && __jsx("img", {
+        className: "sm-view",
         id: "bitmoji-image",
         src: "/images/bitmoji-thinking.png",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 180
+          lineNumber: 183
+        },
+        __self: this
+      }), __jsx("img", {
+        className: "lg-view",
+        id: "bitmoji-image",
+        src: "/images/bitmoji-thinking.png",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 185
         },
         __self: this
       })));
@@ -702,7 +726,7 @@ class Index extends react__WEBPACK_IMPORTED_MODULE_2___default.a.Component {
 
 /***/ }),
 
-/***/ 4:
+/***/ 3:
 /*!******************************!*\
   !*** multi ./pages/index.js ***!
   \******************************/

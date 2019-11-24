@@ -5,6 +5,8 @@ body, html {
   margin: 0;
   height: inherit;
   font-family: Nunito;
+  width: inherit;
+  overflow: hidden;
 }
 
 h1, p {
@@ -62,7 +64,7 @@ label {
 @media only screen and (max-width: 600px) {
 
   .font-sml {
-    font-size: 26px;
+    font-size: 22px;
   }
 
   .font-lrg {
@@ -128,6 +130,12 @@ label {
 
 .margin-top-lrg {
   margin-top: 55px !important;
+}
+
+@media only screen and (max-width: 600px) {
+  .margin-top-lrg {
+    margin-top: 35px !important;
+  }
 }
 
 .margin-left-sml {

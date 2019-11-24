@@ -27,6 +27,15 @@
   width: 180px;
 }
 
+@media only screen and (max-width: 600px) {
+  #bitmoji-image {
+    position: fixed;
+    bottom: -20px;
+    right: -40px;
+    width: 180px;
+  }
+}
+
 .field-wrap {
   width: 100%;
   display: flex;
@@ -91,6 +100,12 @@
   bottom: 3px;
 }
 
+@media only screen and (max-width: 600px) {
+  .modal .button p {
+    font-size: 15px;
+  }
+}
+
 .twitter-logo {
   position: relative;
   top: 3px;
@@ -103,8 +118,22 @@
   }
 }
 
+.play-again {
+  margin-bottom: 0px;
+  margin-top: 15px;
+  color: #bfbfbf;
+  font-size: 15px;
+}
+
+@media only screen and (max-width: 600px) {
+  .play-again {
+    margin-bottom: 15px;
+  }
+}
+
 .play-again .material-icons {
   transition: transform 8s;
+  top: 7px;
 }
 
 .play-again:hover .material-icons {
@@ -116,4 +145,18 @@
   z-index: 1 !important;
   top: 50%;
   left: 50%;
+}
+
+@media only screen and (max-width: 600px) {
+  #checkbox-desc {
+    display: initial;
+    font-size: 15px;
+    position: relative;
+    bottom: 7px;
+    left: 1px;
+  }
+}
+
+.title-section-wrapper {
+  max-width: 90%;
 }
