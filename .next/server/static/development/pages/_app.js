@@ -704,12 +704,36 @@ class GlobalMysteryInc extends next_app__WEBPACK_IMPORTED_MODULE_9___default.a {
         lineNumber: 13
       },
       __self: this
-    }, __jsx("link", {
+    }, __jsx("title", {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 14
+      },
+      __self: this
+    }, "Global Mystery Inc."), __jsx("link", {
+      rel: "shortcut icon",
+      href: "/images/favicon.ico",
+      type: "image/x-icon",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 15
+      },
+      __self: this
+    }), __jsx("link", {
+      rel: "icon",
+      href: "/images/favicon.ico",
+      type: "image/x-icon",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 16
+      },
+      __self: this
+    }), __jsx("link", {
       href: "https://fonts.googleapis.com/css?family=Nunito:700,800,900&display=swap",
       rel: "stylesheet",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 14
+        lineNumber: 17
       },
       __self: this
     }), __jsx("link", {
@@ -717,7 +741,7 @@ class GlobalMysteryInc extends next_app__WEBPACK_IMPORTED_MODULE_9___default.a {
       rel: "stylesheet",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 15
+        lineNumber: 18
       },
       __self: this
     }), __jsx("link", {
@@ -725,7 +749,7 @@ class GlobalMysteryInc extends next_app__WEBPACK_IMPORTED_MODULE_9___default.a {
       href: "/css/utils.css",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 16
+        lineNumber: 19
       },
       __self: this
     }), __jsx("link", {
@@ -733,13 +757,13 @@ class GlobalMysteryInc extends next_app__WEBPACK_IMPORTED_MODULE_9___default.a {
       href: "/css/styles.css",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 17
+        lineNumber: 20
       },
       __self: this
     })), __jsx(Component, Object(_babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_7__["default"])({}, pageProps, {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 19
+        lineNumber: 22
       },
       __self: this
     })));
