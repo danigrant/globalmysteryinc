@@ -135,8 +135,8 @@ class Index extends React.Component {
         "anonymous": this.state.anonymity.toString(),
         "twitter_handle": this.state.twitter,
         "email": this.state.email,
-        "mystery": this.state.topic,
-        "mystery_audience": this.state.audience
+        "mystery": this.state.topic.toLowerCase(),
+        "mystery_audience": this.state.audience.toLowerCase()
       })
     })
     // reset form
@@ -169,7 +169,7 @@ class Index extends React.Component {
     let baseString = "https://twitter.com/intent/tweet?text="
     let encodedPath = encodeURIComponent(`🕵️‍♀️ Just gave \#globalmysteryinc a mysterious little mystery to solve....how would you explain ${this.state.topic? this.state.topic : "why is the climate changing"} to a ${this.state.audience ? this.state.audience : "mean person" }? globalmysteryinc.com`)
     this.setState({
-      twitterLink: `${baseString}${encodedPath}`
+      twitterLink: `${baseString}${encodedPath.toLowerCase()}`
     })
   }
   nextIntroModal = () => {
@@ -187,13 +187,6 @@ class Index extends React.Component {
         "value": autosuggestedAudiences[Math.floor(Math.random() * autosuggestedAudiences.length)]
       }
     })
-  }
-  aOrAn = () => {
-    if (!this.state.audience.length) {
-      return "a"
-    } else {
-      return /[aeiou]/.test(this.state.audience.toLowerCase().charAt(0)) ? "an" : "a"
-    }
   }
   render() {
     if (this.state.formSubmitted) {
