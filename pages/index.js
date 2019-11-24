@@ -156,18 +156,18 @@ class Index extends React.Component {
                 <div className="field-wrap margin-bottom-sml">
                   <label>to a</label>
                   <textarea className="lg-view input-with-center-text" value={this.state.audience} onChange={this.handleAudienceChange} data-autoresize rows="1" type="text" placeholder="space alien who has never visited earth"></textarea>
-                  <textarea className="sm-view input-with-center-text" value={this.state.audience} onChange={this.handleAudienceChange} data-autoresize rows="1" type="text" placeholder="mean person"></textarea>
+                  <textarea className="sm-view input-with-center-text" value={this.state.audience} onChange={this.handleAudienceChange} data-autoresize rows="1" type="text" placeholder="angsty twenty something"></textarea>
                 </div>
                 {
                   this.state.formIsActive &&
                   <div>
                     <div className="margin-top-lrg margin-bottom-sml">
                       <div className="full-row-width"><label className="constrained-width-input">Who are you on email:</label></div>
-                      <input className="constrained-width-input" value={this.state.email} onChange={this.handleEmailChange} type="text" placeholder="mayor@dani.town" />
+                      <input className="constrained-width-input" value={this.state.email} onChange={this.handleEmailChange} type="text" placeholder="you@your.email" />
                     </div>
                     <div className="margin-top-med margin-bottom-sml">
                       <div className="full-row-width"><label className="constrained-width-input">Who are you on twitter:</label></div>
-                      <input className="constrained-width-input" value={this.state.twitter} onChange={this.handleTwitterChange} type="text" placeholder="@thedanigrant" />
+                      <input className="constrained-width-input" value={this.state.twitter} onChange={this.handleTwitterChange} type="text" placeholder="@yourtwitter" />
                     </div>
                     <div className="margin-top-lrg margin-bottom-sml">
                       <input className="checkbox" value={this.state.anonymity} onChange={this.handleAnonymityChange} type="checkbox" checked={!this.state.anonymity} />
