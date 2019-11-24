@@ -192,10 +192,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_AppContainer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/AppContainer */ "./components/AppContainer.js");
 /* harmony import */ var react_pose__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-pose */ "react-pose");
 /* harmony import */ var react_pose__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react_pose__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var react_dom_confetti__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-dom-confetti */ "react-dom-confetti");
+/* harmony import */ var react_dom_confetti__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react_dom_confetti__WEBPACK_IMPORTED_MODULE_5__);
 
 
 var _jsxFileName = "/Users/danigrant/Projects/globalmysteryinc/pages/index.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement;
+
 
 
 
@@ -207,6 +210,18 @@ const ExpandableBox = react_pose__WEBPACK_IMPORTED_MODULE_4___default.a.div({
     marginTop: 30
   }
 });
+const confettiConfig = {
+  angle: 90,
+  spread: 45,
+  startVelocity: 45,
+  elementCount: 50,
+  dragFriction: 0.1,
+  duration: 3000,
+  stagger: 0,
+  width: "10px",
+  height: "10px",
+  colors: ["#a864fd", "#29cdff", "#78ff44", "#ff718d", "#fdff6a"]
+};
 
 class Index extends react__WEBPACK_IMPORTED_MODULE_2___default.a.Component {
   constructor(props) {
@@ -269,6 +284,20 @@ class Index extends react__WEBPACK_IMPORTED_MODULE_2___default.a.Component {
         anonymity: false,
         formIsActive: false,
         formSubmitted: true
+      }); // wait a bit and then trigger the confetti
+
+      let thisRef = this;
+      setTimeout(function () {
+        thisRef.setState({
+          confetti: true
+        });
+      }, 150);
+    });
+
+    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__["default"])(this, "handleReplay", e => {
+      this.setState({
+        formSubmitted: false,
+        formIsActive: false
       });
     });
 
@@ -279,7 +308,8 @@ class Index extends react__WEBPACK_IMPORTED_MODULE_2___default.a.Component {
       twitter: '',
       anonymity: false,
       formIsActive: false,
-      formSubmitted: false
+      formSubmitted: false,
+      confetti: false
     };
   }
 
@@ -300,48 +330,63 @@ class Index extends react__WEBPACK_IMPORTED_MODULE_2___default.a.Component {
       return __jsx("div", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 78
+          lineNumber: 103
         },
         __self: this
       }, __jsx(_components_AppContainer__WEBPACK_IMPORTED_MODULE_3__["default"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 79
+          lineNumber: 104
         },
         __self: this
       }, __jsx("div", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 105
+        },
+        __self: this
+      }, __jsx(react_dom_confetti__WEBPACK_IMPORTED_MODULE_5___default.a, {
+        className: "confetti",
+        active: this.state.confetti,
+        config: confettiConfig,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 106
+        },
+        __self: this
+      })), __jsx("div", {
         className: "modal",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 80
+          lineNumber: 108
         },
         __self: this
       }, __jsx("img", {
         src: "/images/bitmoji-amazing.png",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 81
+          lineNumber: 109
         },
         __self: this
       }), __jsx("p", {
-        className: "font-sml font-weight-bold",
+        className: "font-sml font-weight-bold margin-top-sml",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 82
+          lineNumber: 110
         },
         __self: this
       }, "That is a ", __jsx("span", {
         className: "font-color-purple",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 82
+          lineNumber: 110
         },
         __self: this
       }, " fantastic"), " mystery. It\u2019s been submitted to global mystery headquarters."), __jsx("div", {
         className: "button margin-top-med background-color-twitter-blue",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 83
+          lineNumber: 111
         },
         __self: this
       }, __jsx("svg", {
@@ -353,63 +398,98 @@ class Index extends react__WEBPACK_IMPORTED_MODULE_2___default.a.Component {
         viewBox: "0 0 24 24",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 84
+          lineNumber: 112
         },
         __self: this
       }, __jsx("path", {
         d: "M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 84
+          lineNumber: 112
         },
         __self: this
       })), __jsx("p", {
         className: "margin-left-sml margin-right-sml",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 85
+          lineNumber: 113
         },
         __self: this
-      }, "Share Your Mystery With The Twitterverse")))));
+      }, __jsx("span", {
+        className: "lg-view",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 114
+        },
+        __self: this
+      }, "Share Your Mystery With The Twitterverse"), __jsx("span", {
+        className: "sm-view",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 115
+        },
+        __self: this
+      }, "Share Mystery With Twitter"))), __jsx("div", {
+        onClick: this.handleReplay,
+        className: "play-again link margin-top-med font-color-grey",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 118
+        },
+        __self: this
+      }, __jsx("i", {
+        className: "material-icons",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 119
+        },
+        __self: this
+      }, "replay_rounded"), __jsx("p", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 120
+        },
+        __self: this
+      }, "Have another mystery?")))));
     } else {
       return __jsx("div", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 93
+          lineNumber: 128
         },
         __self: this
       }, __jsx(_components_AppContainer__WEBPACK_IMPORTED_MODULE_3__["default"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 94
+          lineNumber: 129
         },
         __self: this
       }, !this.state.formIsActive && __jsx("div", {
         className: "title-section-wrapper center",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 97
+          lineNumber: 132
         },
         __self: this
       }, __jsx("h1", {
         className: "font-lrg",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 98
+          lineNumber: 133
         },
         __self: this
       }, "Serious question."), __jsx("h1", {
         className: "font-lrg",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 99
+          lineNumber: 134
         },
         __self: this
       }, "What would you like explained?"), __jsx("h2", {
         className: "font-color-grey",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 100
+          lineNumber: 135
         },
         __self: this
       }, "Welcome to a project where we listen to your mysteries and then kick off a tournament to explain them.")), __jsx(ExpandableBox, {
@@ -418,28 +498,28 @@ class Index extends react__WEBPACK_IMPORTED_MODULE_2___default.a.Component {
         className: "card-section-wrapper font-sml",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 103
+          lineNumber: 138
         },
         __self: this
       }, __jsx("form", {
         className: "margin-bottom-med",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 104
+          lineNumber: 139
         },
         __self: this
       }, __jsx("div", {
         className: "field-wrap margin-bottom-sml",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 105
+          lineNumber: 140
         },
         __self: this
       }, __jsx("label", {
         className: "how-label",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 106
+          lineNumber: 141
         },
         __self: this
       }, "How would you explain"), __jsx("textarea", {
@@ -452,20 +532,20 @@ class Index extends react__WEBPACK_IMPORTED_MODULE_2___default.a.Component {
         placeholder: "how does popcorn work",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 107
+          lineNumber: 142
         },
         __self: this
       })), __jsx("div", {
         className: "field-wrap margin-bottom-sml",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 109
+          lineNumber: 144
         },
         __self: this
       }, __jsx("label", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 110
+          lineNumber: 145
         },
         __self: this
       }, "to a"), __jsx("textarea", {
@@ -478,34 +558,34 @@ class Index extends react__WEBPACK_IMPORTED_MODULE_2___default.a.Component {
         placeholder: "space alien who has never visited earth",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 111
+          lineNumber: 146
         },
         __self: this
       })), this.state.formIsActive && __jsx("div", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 115
+          lineNumber: 150
         },
         __self: this
       }, __jsx("div", {
         className: "margin-top-lrg margin-bottom-sml",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 116
+          lineNumber: 151
         },
         __self: this
       }, __jsx("div", {
         className: "full-row-width",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 117
+          lineNumber: 152
         },
         __self: this
       }, __jsx("label", {
         className: "constrained-width-input",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 117
+          lineNumber: 152
         },
         __self: this
       }, "Who are you on email:")), __jsx("input", {
@@ -516,28 +596,28 @@ class Index extends react__WEBPACK_IMPORTED_MODULE_2___default.a.Component {
         placeholder: "mayor@dani.town",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 118
+          lineNumber: 153
         },
         __self: this
       })), __jsx("div", {
         className: "margin-top-med margin-bottom-sml",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 120
+          lineNumber: 155
         },
         __self: this
       }, __jsx("div", {
         className: "full-row-width",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 121
+          lineNumber: 156
         },
         __self: this
       }, __jsx("label", {
         className: "constrained-width-input",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 121
+          lineNumber: 156
         },
         __self: this
       }, "Who are you on twitter:")), __jsx("input", {
@@ -548,14 +628,14 @@ class Index extends react__WEBPACK_IMPORTED_MODULE_2___default.a.Component {
         placeholder: "@thedanigrant",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 122
+          lineNumber: 157
         },
         __self: this
       })), __jsx("div", {
         className: "margin-top-lrg margin-bottom-sml",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 124
+          lineNumber: 159
         },
         __self: this
       }, __jsx("input", {
@@ -566,13 +646,13 @@ class Index extends react__WEBPACK_IMPORTED_MODULE_2___default.a.Component {
         checked: !this.state.anonymity,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 125
+          lineNumber: 160
         },
         __self: this
       }), __jsx("p", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 126
+          lineNumber: 161
         },
         __self: this
       }, "You can attribute this mystery to me.")))), __jsx("div", {
@@ -581,7 +661,7 @@ class Index extends react__WEBPACK_IMPORTED_MODULE_2___default.a.Component {
         type: "submit",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 131
+          lineNumber: 166
         },
         __self: this
       }, "Submit Mystery")), __jsx("img", {
@@ -589,7 +669,7 @@ class Index extends react__WEBPACK_IMPORTED_MODULE_2___default.a.Component {
         src: "/images/bitmoji-thinking.png",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 133
+          lineNumber: 168
         },
         __self: this
       })));
@@ -644,6 +724,17 @@ module.exports = require("core-js/library/fn/object/define-property");
 /***/ (function(module, exports) {
 
 module.exports = require("react");
+
+/***/ }),
+
+/***/ "react-dom-confetti":
+/*!*************************************!*\
+  !*** external "react-dom-confetti" ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("react-dom-confetti");
 
 /***/ }),
 

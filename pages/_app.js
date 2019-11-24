@@ -12,6 +12,7 @@ class GlobalMysteryInc extends App {
       <div>
         <Head>
           <link href="https://fonts.googleapis.com/css?family=Nunito:700,800,900&display=swap" rel="stylesheet" />
+          <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
           <link rel="stylesheet" href="/css/utils.css" />
           <link rel="stylesheet" href="/css/styles.css" />
         </Head>

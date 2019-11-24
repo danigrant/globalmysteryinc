@@ -87,11 +87,11 @@ label {
   width: fit-content;
 }
 
-.button:hover {
+.button:hover, .link:hover {
   filter: brightness(110%);
 }
 
-.button:active {
+.button:active, .link:hover {
   filter: brightness(120%);
 }
 
@@ -140,4 +140,29 @@ label {
 
 .full-width {
   min-width: 100%;
+}
+
+.lg-view {
+  display: inline-block;
+}
+
+.sm-view {
+  display: none;
+}
+
+@media only screen and (max-width: 600px) {
+  .lg-view {
+    display: none;
+  }
+
+  .sm-view {
+    display: inline-block;
+  }
+}
+
+.material-icons {
+  width: 24px;
+  position: relative;
+  top: 6px;
+  margin-right: 5px;
 }

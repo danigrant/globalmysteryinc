@@ -7784,8 +7784,8 @@ function (_App) {
         },
         __self: this
       }), __jsx("link", {
+        href: "https://fonts.googleapis.com/icon?family=Material+Icons",
         rel: "stylesheet",
-        href: "/css/utils.css",
         __source: {
           fileName: _jsxFileName,
           lineNumber: 15
@@ -7793,16 +7793,24 @@ function (_App) {
         __self: this
       }), __jsx("link", {
         rel: "stylesheet",
-        href: "/css/styles.css",
+        href: "/css/utils.css",
         __source: {
           fileName: _jsxFileName,
           lineNumber: 16
         },
         __self: this
+      }), __jsx("link", {
+        rel: "stylesheet",
+        href: "/css/styles.css",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 17
+        },
+        __self: this
       })), __jsx(Component, Object(_babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_9__["default"])({}, pageProps, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 18
+          lineNumber: 19
         },
         __self: this
       })));

@@ -2915,6 +2915,164 @@ for (var i = 0; i < DOMIterables.length; i++) {
 
 /***/ }),
 
+/***/ "./node_modules/dom-confetti/lib/main.js":
+/*!***********************************************!*\
+  !*** ./node_modules/dom-confetti/lib/main.js ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.confetti = confetti;
+var defaultColors = ["#a864fd", "#29cdff", "#78ff44", "#ff718d", "#fdff6a"];
+
+function createElements(root, elementCount, colors, width, height) {
+  return Array.from({ length: elementCount }).map(function (_, index) {
+    var element = document.createElement("div");
+    var color = colors[index % colors.length];
+    element.style["background-color"] = color; // eslint-disable-line space-infix-ops
+    element.style.width = width;
+    element.style.height = height;
+    element.style.position = "absolute";
+    element.style.willChange = "transform, opacity";
+    element.style.visibility = "hidden";
+    root.appendChild(element);
+    return element;
+  });
+}
+
+function randomPhysics(angle, spread, startVelocity, random) {
+  var radAngle = angle * (Math.PI / 180);
+  var radSpread = spread * (Math.PI / 180);
+  return {
+    x: 0,
+    y: 0,
+    wobble: random() * 10,
+    wobbleSpeed: 0.1 + random() * 0.1,
+    velocity: startVelocity * 0.5 + random() * startVelocity,
+    angle2D: -radAngle + (0.5 * radSpread - random() * radSpread),
+    angle3D: -(Math.PI / 4) + random() * (Math.PI / 2),
+    tiltAngle: random() * Math.PI,
+    tiltAngleSpeed: 0.1 + random() * 0.3
+  };
+}
+
+function updateFetti(fetti, progress, dragFriction, decay) {
+  /* eslint-disable no-param-reassign */
+  fetti.physics.x += Math.cos(fetti.physics.angle2D) * fetti.physics.velocity;
+  fetti.physics.y += Math.sin(fetti.physics.angle2D) * fetti.physics.velocity;
+  fetti.physics.z += Math.sin(fetti.physics.angle3D) * fetti.physics.velocity;
+  fetti.physics.wobble += fetti.physics.wobbleSpeed;
+  // Backward compatibility
+  if (decay) {
+    fetti.physics.velocity *= decay;
+  } else {
+    fetti.physics.velocity -= fetti.physics.velocity * dragFriction;
+  }
+  fetti.physics.y += 3;
+  fetti.physics.tiltAngle += fetti.physics.tiltAngleSpeed;
+
+  var _fetti$physics = fetti.physics,
+      x = _fetti$physics.x,
+      y = _fetti$physics.y,
+      tiltAngle = _fetti$physics.tiltAngle,
+      wobble = _fetti$physics.wobble;
+
+  var wobbleX = x + 10 * Math.cos(wobble);
+  var wobbleY = y + 10 * Math.sin(wobble);
+  var transform = "translate3d(" + wobbleX + "px, " + wobbleY + "px, 0) rotate3d(1, 1, 1, " + tiltAngle + "rad)";
+
+  fetti.element.style.visibility = "visible";
+  fetti.element.style.transform = transform;
+  fetti.element.style.opacity = 1 - progress;
+
+  /* eslint-enable */
+}
+
+function animate(root, fettis, dragFriction, decay, duration, stagger) {
+  var startTime = void 0;
+
+  return new Promise(function (resolve) {
+    function update(time) {
+      if (!startTime) startTime = time;
+      var elapsed = time - startTime;
+      var progress = startTime === time ? 0 : (time - startTime) / duration;
+      fettis.slice(0, Math.ceil(elapsed / stagger)).forEach(function (fetti) {
+        updateFetti(fetti, progress, dragFriction, decay);
+      });
+
+      if (time - startTime < duration) {
+        requestAnimationFrame(update);
+      } else {
+        fettis.forEach(function (fetti) {
+          if (fetti.element.parentNode === root) {
+            return root.removeChild(fetti.element);
+          }
+        });
+        resolve();
+      }
+    }
+
+    requestAnimationFrame(update);
+  });
+}
+
+var defaults = {
+  angle: 90,
+  spread: 45,
+  startVelocity: 45,
+  elementCount: 50,
+  width: "10px",
+  height: "10px",
+  colors: defaultColors,
+  duration: 3000,
+  stagger: 0,
+  dragFriction: 0.1,
+  random: Math.random
+};
+
+function backwardPatch(config) {
+  if (!config.stagger && config.delay) {
+    config.stagger = config.delay;
+  }
+  return config;
+}
+
+function confetti(root) {
+  var config = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+
+  var _Object$assign = Object.assign({}, defaults, backwardPatch(config)),
+      elementCount = _Object$assign.elementCount,
+      colors = _Object$assign.colors,
+      width = _Object$assign.width,
+      height = _Object$assign.height,
+      angle = _Object$assign.angle,
+      spread = _Object$assign.spread,
+      startVelocity = _Object$assign.startVelocity,
+      decay = _Object$assign.decay,
+      dragFriction = _Object$assign.dragFriction,
+      duration = _Object$assign.duration,
+      stagger = _Object$assign.stagger,
+      random = _Object$assign.random;
+
+  var elements = createElements(root, elementCount, colors, width, height);
+  var fettis = elements.map(function (element) {
+    return {
+      element: element,
+      physics: randomPhysics(angle, spread, startVelocity, random)
+    };
+  });
+
+  return animate(root, fettis, dragFriction, decay, duration, stagger);
+}
+
+/***/ }),
+
 /***/ "./node_modules/framesync/dist/framesync.es.js":
 /*!*****************************************************!*\
   !*** ./node_modules/framesync/dist/framesync.es.js ***!
@@ -5964,6 +6122,78 @@ var poseFactory = function (_a) {
 
 /***/ }),
 
+/***/ "./node_modules/react-dom-confetti/lib/confetti.js":
+/*!*********************************************************!*\
+  !*** ./node_modules/react-dom-confetti/lib/confetti.js ***!
+  \*********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _domConfetti = __webpack_require__(/*! dom-confetti */ "./node_modules/dom-confetti/lib/main.js");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var style = {
+  position: "relative"
+};
+
+var Confetti = function (_Component) {
+  _inherits(Confetti, _Component);
+
+  function Confetti(props) {
+    _classCallCheck(this, Confetti);
+
+    var _this = _possibleConstructorReturn(this, (Confetti.__proto__ || Object.getPrototypeOf(Confetti)).call(this, props));
+
+    _this.setRef = _this.setRef.bind(_this);
+    return _this;
+  }
+
+  _createClass(Confetti, [{
+    key: "componentDidUpdate",
+    value: function componentDidUpdate(prevProps) {
+      if (!prevProps.active && this.props.active) {
+        (0, _domConfetti.confetti)(this.container, this.props.config);
+      }
+    }
+  }, {
+    key: "setRef",
+    value: function setRef(ref) {
+      this.container = ref;
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return _react2.default.createElement("div", { className: this.props.className, style: style, ref: this.setRef });
+    }
+  }]);
+
+  return Confetti;
+}(_react.Component);
+
+exports.default = Confetti;
+
+/***/ }),
+
 /***/ "./node_modules/react-pose/dist/react-pose.es.js":
 /*!*******************************************************!*\
   !*** ./node_modules/react-pose/dist/react-pose.es.js ***!
@@ -7538,6 +7768,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_8__);
 /* harmony import */ var _components_AppContainer__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../components/AppContainer */ "./components/AppContainer.js");
 /* harmony import */ var react_pose__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react-pose */ "./node_modules/react-pose/dist/react-pose.es.js");
+/* harmony import */ var react_dom_confetti__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! react-dom-confetti */ "./node_modules/react-dom-confetti/lib/confetti.js");
+/* harmony import */ var react_dom_confetti__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(react_dom_confetti__WEBPACK_IMPORTED_MODULE_11__);
 
 
 
@@ -7551,6 +7783,7 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement;
 
 
 
+
 var ExpandableBox = react_pose__WEBPACK_IMPORTED_MODULE_10__["default"].div({
   expanded: {
     marginTop: 0
@@ -7559,6 +7792,18 @@ var ExpandableBox = react_pose__WEBPACK_IMPORTED_MODULE_10__["default"].div({
     marginTop: 30
   }
 });
+var confettiConfig = {
+  angle: 90,
+  spread: 45,
+  startVelocity: 45,
+  elementCount: 50,
+  dragFriction: 0.1,
+  duration: 3000,
+  stagger: 0,
+  width: "10px",
+  height: "10px",
+  colors: ["#a864fd", "#29cdff", "#78ff44", "#ff718d", "#fdff6a"]
+};
 
 var Index =
 /*#__PURE__*/
@@ -7629,6 +7874,22 @@ function (_React$Component) {
         anonymity: false,
         formIsActive: false,
         formSubmitted: true
+      }); // wait a bit and then trigger the confetti
+
+
+      var thisRef = Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_5__["default"])(_this);
+
+      setTimeout(function () {
+        thisRef.setState({
+          confetti: true
+        });
+      }, 150);
+    });
+
+    Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_7__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_5__["default"])(_this), "handleReplay", function (e) {
+      _this.setState({
+        formSubmitted: false,
+        formIsActive: false
       });
     });
 
@@ -7639,7 +7900,8 @@ function (_React$Component) {
       twitter: '',
       anonymity: false,
       formIsActive: false,
-      formSubmitted: false
+      formSubmitted: false,
+      confetti: false
     };
     return _this;
   }
@@ -7664,48 +7926,63 @@ function (_React$Component) {
         return __jsx("div", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 78
+            lineNumber: 103
           },
           __self: this
         }, __jsx(_components_AppContainer__WEBPACK_IMPORTED_MODULE_9__["default"], {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 79
+            lineNumber: 104
           },
           __self: this
         }, __jsx("div", {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 105
+          },
+          __self: this
+        }, __jsx(react_dom_confetti__WEBPACK_IMPORTED_MODULE_11___default.a, {
+          className: "confetti",
+          active: this.state.confetti,
+          config: confettiConfig,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 106
+          },
+          __self: this
+        })), __jsx("div", {
           className: "modal",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 80
+            lineNumber: 108
           },
           __self: this
         }, __jsx("img", {
           src: "/images/bitmoji-amazing.png",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 81
+            lineNumber: 109
           },
           __self: this
         }), __jsx("p", {
-          className: "font-sml font-weight-bold",
+          className: "font-sml font-weight-bold margin-top-sml",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 82
+            lineNumber: 110
           },
           __self: this
         }, "That is a ", __jsx("span", {
           className: "font-color-purple",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 82
+            lineNumber: 110
           },
           __self: this
         }, " fantastic"), " mystery. It\u2019s been submitted to global mystery headquarters."), __jsx("div", {
           className: "button margin-top-med background-color-twitter-blue",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 83
+            lineNumber: 111
           },
           __self: this
         }, __jsx("svg", {
@@ -7717,63 +7994,98 @@ function (_React$Component) {
           viewBox: "0 0 24 24",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 84
+            lineNumber: 112
           },
           __self: this
         }, __jsx("path", {
           d: "M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 84
+            lineNumber: 112
           },
           __self: this
         })), __jsx("p", {
           className: "margin-left-sml margin-right-sml",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 85
+            lineNumber: 113
           },
           __self: this
-        }, "Share Your Mystery With The Twitterverse")))));
+        }, __jsx("span", {
+          className: "lg-view",
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 114
+          },
+          __self: this
+        }, "Share Your Mystery With The Twitterverse"), __jsx("span", {
+          className: "sm-view",
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 115
+          },
+          __self: this
+        }, "Share Mystery With Twitter"))), __jsx("div", {
+          onClick: this.handleReplay,
+          className: "play-again link margin-top-med font-color-grey",
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 118
+          },
+          __self: this
+        }, __jsx("i", {
+          className: "material-icons",
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 119
+          },
+          __self: this
+        }, "replay_rounded"), __jsx("p", {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 120
+          },
+          __self: this
+        }, "Have another mystery?")))));
       } else {
         return __jsx("div", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 93
+            lineNumber: 128
           },
           __self: this
         }, __jsx(_components_AppContainer__WEBPACK_IMPORTED_MODULE_9__["default"], {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 94
+            lineNumber: 129
           },
           __self: this
         }, !this.state.formIsActive && __jsx("div", {
           className: "title-section-wrapper center",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 97
+            lineNumber: 132
           },
           __self: this
         }, __jsx("h1", {
           className: "font-lrg",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 98
+            lineNumber: 133
           },
           __self: this
         }, "Serious question."), __jsx("h1", {
           className: "font-lrg",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 99
+            lineNumber: 134
           },
           __self: this
         }, "What would you like explained?"), __jsx("h2", {
           className: "font-color-grey",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 100
+            lineNumber: 135
           },
           __self: this
         }, "Welcome to a project where we listen to your mysteries and then kick off a tournament to explain them.")), __jsx(ExpandableBox, {
@@ -7782,28 +8094,28 @@ function (_React$Component) {
           className: "card-section-wrapper font-sml",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 103
+            lineNumber: 138
           },
           __self: this
         }, __jsx("form", {
           className: "margin-bottom-med",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 104
+            lineNumber: 139
           },
           __self: this
         }, __jsx("div", {
           className: "field-wrap margin-bottom-sml",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 105
+            lineNumber: 140
           },
           __self: this
         }, __jsx("label", {
           className: "how-label",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 106
+            lineNumber: 141
           },
           __self: this
         }, "How would you explain"), __jsx("textarea", {
@@ -7816,20 +8128,20 @@ function (_React$Component) {
           placeholder: "how does popcorn work",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 107
+            lineNumber: 142
           },
           __self: this
         })), __jsx("div", {
           className: "field-wrap margin-bottom-sml",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 109
+            lineNumber: 144
           },
           __self: this
         }, __jsx("label", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 110
+            lineNumber: 145
           },
           __self: this
         }, "to a"), __jsx("textarea", {
@@ -7842,34 +8154,34 @@ function (_React$Component) {
           placeholder: "space alien who has never visited earth",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 111
+            lineNumber: 146
           },
           __self: this
         })), this.state.formIsActive && __jsx("div", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 115
+            lineNumber: 150
           },
           __self: this
         }, __jsx("div", {
           className: "margin-top-lrg margin-bottom-sml",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 116
+            lineNumber: 151
           },
           __self: this
         }, __jsx("div", {
           className: "full-row-width",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 117
+            lineNumber: 152
           },
           __self: this
         }, __jsx("label", {
           className: "constrained-width-input",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 117
+            lineNumber: 152
           },
           __self: this
         }, "Who are you on email:")), __jsx("input", {
@@ -7880,28 +8192,28 @@ function (_React$Component) {
           placeholder: "mayor@dani.town",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 118
+            lineNumber: 153
           },
           __self: this
         })), __jsx("div", {
           className: "margin-top-med margin-bottom-sml",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 120
+            lineNumber: 155
           },
           __self: this
         }, __jsx("div", {
           className: "full-row-width",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 121
+            lineNumber: 156
           },
           __self: this
         }, __jsx("label", {
           className: "constrained-width-input",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 121
+            lineNumber: 156
           },
           __self: this
         }, "Who are you on twitter:")), __jsx("input", {
@@ -7912,14 +8224,14 @@ function (_React$Component) {
           placeholder: "@thedanigrant",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 122
+            lineNumber: 157
           },
           __self: this
         })), __jsx("div", {
           className: "margin-top-lrg margin-bottom-sml",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 124
+            lineNumber: 159
           },
           __self: this
         }, __jsx("input", {
@@ -7930,13 +8242,13 @@ function (_React$Component) {
           checked: !this.state.anonymity,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 125
+            lineNumber: 160
           },
           __self: this
         }), __jsx("p", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 126
+            lineNumber: 161
           },
           __self: this
         }, "You can attribute this mystery to me.")))), __jsx("div", {
@@ -7945,7 +8257,7 @@ function (_React$Component) {
           type: "submit",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 131
+            lineNumber: 166
           },
           __self: this
         }, "Submit Mystery")), __jsx("img", {
@@ -7953,7 +8265,7 @@ function (_React$Component) {
           src: "/images/bitmoji-thinking.png",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 133
+            lineNumber: 168
           },
           __self: this
         })));
