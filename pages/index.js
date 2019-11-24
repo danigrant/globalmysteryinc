@@ -53,10 +53,10 @@ const autosuggestedAudiences = [
   "person you are on a first date with",
   "out of touch relative",
   "a toddler with too much energy",
-  "person who lived hundreds of years ago",
+  "person who lived a thousand years ago",
   "former lover",
   "twenty something with lots to learn",
-  "very wise but also very peculiar kindergardner",
+  "very wise but also very peculiar child",
   "person who has never experienced snow",
   "drunk uncle",
   "person you want to have a very short conversation with",
@@ -100,7 +100,7 @@ class Index extends React.Component {
     document.querySelectorAll('[data-autoresize]').forEach(function (element) {
       element.style.boxSizing = 'border-box';
       var offset = element.offsetHeight - element.clientHeight;
-      document.addEventListener('input', function (event) {
+      document.addEventListener('change', function (event) {
         event.target.style.height = 'auto';
         event.target.style.height = event.target.scrollHeight + offset + 'px';
       });
@@ -182,8 +182,10 @@ class Index extends React.Component {
     this.setState({ introModalIndex:  this.state.introModals.length + 1 })
   }
   autosuggestedAudience = () => {
-    this.setState({
-      audience: autosuggestedAudiences[Math.floor(Math.random() * autosuggestedAudiences.length)]
+    this.handleAudienceChange({
+      "target": {
+        "value": autosuggestedAudiences[Math.floor(Math.random() * autosuggestedAudiences.length)]
+      }
     })
   }
   render() {
@@ -245,8 +247,8 @@ class Index extends React.Component {
                 </div>
                 <div className="field-wrap margin-bottom-sml">
                   <label>to a</label>
-                  <textarea className="lg-view input-with-center-text" value={this.state.audience} onChange={this.handleAudienceChange} data-autoresize rows="1" type="text" placeholder="space alien who has never visited earth"></textarea>
-                  <textarea className="sm-view input-with-center-text" value={this.state.audience} onChange={this.handleAudienceChange} data-autoresize rows="1" type="text" placeholder="angsty twenty something"></textarea>
+                  <textarea className="lg-view input-with-center-text" value={this.state.audience} onChange={this.handleAudienceChange} data-autoresize rows={this.state.audience.length > 46 ? 2 : 1} type="text" placeholder="space alien who has never visited earth"></textarea>
+                  <textarea className="sm-view input-with-center-text" value={this.state.audience} onChange={this.handleAudienceChange} data-autoresize rows={this.state.audience.length > 21 && this.state.audience.length < 38 ? 2 : this.state.audience.length > 37 ? 3 : 1} type="text" placeholder="angsty twenty something"></textarea>
                   <div onClick={this.autosuggestedAudience} className="autosuggest-audience-button"><i className="material-icons link">shuffle_rounded</i></div>
                 </div>
                 {
