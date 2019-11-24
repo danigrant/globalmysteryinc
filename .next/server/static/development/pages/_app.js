@@ -711,21 +711,12 @@ class GlobalMysteryInc extends next_app__WEBPACK_IMPORTED_MODULE_9___default.a {
       },
       __self: this
     }, "Global Mystery Inc."), __jsx("link", {
-      rel: "shortcut icon",
-      href: "/images/favicon.ico",
-      type: "image/x-icon",
+      rel: "icon",
+      href: "/images/favicon.png",
+      type: "image/png",
       __source: {
         fileName: _jsxFileName,
         lineNumber: 15
-      },
-      __self: this
-    }), __jsx("link", {
-      rel: "icon",
-      href: "/images/favicon.ico",
-      type: "image/x-icon",
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 16
       },
       __self: this
     }), __jsx("link", {
@@ -733,7 +724,7 @@ class GlobalMysteryInc extends next_app__WEBPACK_IMPORTED_MODULE_9___default.a {
       rel: "stylesheet",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 17
+        lineNumber: 16
       },
       __self: this
     }), __jsx("link", {
@@ -741,7 +732,7 @@ class GlobalMysteryInc extends next_app__WEBPACK_IMPORTED_MODULE_9___default.a {
       rel: "stylesheet",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 18
+        lineNumber: 17
       },
       __self: this
     }), __jsx("link", {
@@ -749,7 +740,7 @@ class GlobalMysteryInc extends next_app__WEBPACK_IMPORTED_MODULE_9___default.a {
       href: "/css/utils.css",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 19
+        lineNumber: 18
       },
       __self: this
     }), __jsx("link", {
@@ -757,13 +748,13 @@ class GlobalMysteryInc extends next_app__WEBPACK_IMPORTED_MODULE_9___default.a {
       href: "/css/styles.css",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 20
+        lineNumber: 19
       },
       __self: this
     })), __jsx(Component, Object(_babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_7__["default"])({}, pageProps, {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 22
+        lineNumber: 21
       },
       __self: this
     })));
