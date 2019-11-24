@@ -6,8 +6,8 @@ body, html {
   height: inherit;
   font-family: Nunito;
   width: inherit;
-  overflow-x: hidden;
-  overflow-y: scroll; 
+  /*overflow-x: hidden;
+  overflow-y: scroll; */
 }
 
 h1, p {

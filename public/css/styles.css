@@ -101,6 +101,9 @@
 }
 
 @media only screen and (max-width: 600px) {
+  .modal {
+    margin-bottom: 55px;
+  }
   .modal .button p {
     font-size: 15px;
   }
