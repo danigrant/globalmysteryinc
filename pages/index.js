@@ -170,7 +170,7 @@ class Index extends React.Component {
   }
   updateTwitterLink = () => {
     let baseString = "https://twitter.com/intent/tweet?text="
-    let encodedPath = encodeURIComponent(`🕵️‍♀️ Just gave \#globalmysteryinc a mysterious little mystery to solve....how would you explain ${this.state.topic? this.state.topic : "why is the climate changing"} to a ${this.state.audience ? this.state.audience : "mean person" }? globalmysteryinc.com`)
+    let encodedPath = encodeURIComponent(`🕵️‍♀️ Just gave \#globalmysteryinc a mystery to solve....how would you explain ${this.state.topic? this.state.topic : "why is the climate changing"} to a ${this.state.audience ? this.state.audience : "mean person" }? globalmysteryinc.com`)
     this.setState({
       twitterLink: `${baseString}${encodedPath.toLowerCase()}`
     })
