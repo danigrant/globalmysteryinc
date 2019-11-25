@@ -46,39 +46,53 @@ const starterModals = [
   }
 ]
 
+// first half is mobile only, if mobile only pulls from that half
 const autosuggestedAudiences = [
-  "parent who loves you very much",
   "aspiring comedian",
   "mean person",
-  "person you are on a first date with",
   "out of touch relative",
+  "former lover",
+  "thirty something",
+  "woman in her twenties",
+  "tipsy uncle",
+  "bitcoin maximalist",
+  "hungry hungry hippo",
+  "dad-joke dad",
+  "casual run-in",
+  "make-believe person",
+  "irl superhero",
+  "santa elf",
+  "painter",
+  "first-grade teacher",
+  "grandparent",
+  "loved one",
+  "little kid",
+  "aspiring scientist",
+  "future world leader",
+  "visual learner",
+  "vegetarian",
+  "Kim Kardashian look-a-like",
+  "person who is afraid of technology",
+  "person who is late to their next meeting",
+  "parent who loves you very much",
+  "person you are on a first date with",
   "a toddler with too much energy",
   "person who lived a thousand years ago",
-  "former lover",
-  "twenty something with lots to learn",
   "very wise but also very peculiar child",
   "person who has never experienced snow",
-  "drunk uncle",
   "person you want to have a very short conversation with",
-  "mouse",
   "poet who only understands things in rhymes",
   "audience of senior citizens",
   "nearby group of people waiting for the subway",
-  "person who is hard of hearing",
-  "least patient person",
   "friend you haven't seen since college study abroad",
   "close friend who is about to become a parent",
-  "single child",
   "very privileged human being",
   "former member of The Beatles",
   "TV writer on the cast of SNL",
   "astronaut who hasn't been back to earth in a decade",
-  "Kim Kardashian look-a-like",
   "person who is in a big hurry",
   "tall person you meet in the elevator",
   "shopkeeper who is wondering what you are doing",
-  "bitcoin maximalist",
-  "hungry hungry hippo",
   "retired professor who refuses to believe new information"
 ]
 
@@ -191,6 +205,13 @@ class Index extends React.Component {
       }
     })
   }
+  autosuggestedAudienceMobile = () => {
+    this.handleAudienceChange({
+      "target": {
+        "value": autosuggestedAudiences[Math.floor(Math.random() * 23)]
+      }
+    })
+  }
   render() {
     if (this.state.formSubmitted) {
       return (
@@ -253,7 +274,8 @@ class Index extends React.Component {
                   <label>to {/[aeiou]/.test(this.state.audience.toLowerCase().charAt(0)) ? "an" : "a"}</label>
                   <textarea className="lg-view input-with-center-text" value={this.state.audience} onChange={this.handleAudienceChange} data-autoresize rows={this.state.audience.length > 46 ? 2 : 1} type="text" placeholder="space alien who has never visited earth"></textarea>
                   <textarea className="sm-view input-with-center-text" value={this.state.audience} onChange={this.handleAudienceChange} data-autoresize rows={this.state.audience.length > 21 && this.state.audience.length < 38 ? 2 : this.state.audience.length > 37 ? 3 : 1} type="text" placeholder="angsty twenty something"></textarea>
-                  <div onClick={this.autosuggestedAudience} className="autosuggest-audience-button"><i className="material-icons link">shuffle_rounded</i></div>
+                  <div onClick={this.autosuggestedAudience} className="lg-view autosuggest-audience-button"><i className="material-icons link">shuffle_rounded</i></div>
+                  <div onClick={this.autosuggestedAudienceMobile} className="sm-view autosuggest-audience-button"><i className="material-icons link">shuffle_rounded</i></div>
                 </div>
                 {
                   this.state.formIsActive &&
