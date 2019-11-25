@@ -448,7 +448,7 @@ class Index extends react__WEBPACK_IMPORTED_MODULE_2___default.a.Component {
 
     Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__["default"])(this, "updateTwitterLink", () => {
       let baseString = "https://twitter.com/intent/tweet?text=";
-      let encodedPath = encodeURIComponent(`🕵️‍♀️ Just gave \#globalmysteryinc a mystery to solve....how would you explain ${this.state.topic ? this.state.topic : "why is the climate changing"} to a ${this.state.audience ? this.state.audience : "mean person"}? globalmysteryinc.com`);
+      let encodedPath = encodeURIComponent(`🕵️‍♀️ Just gave \#globalmysteryinc a mystery to solve....how would you explain ${this.state.topic ? this.state.topic : "why is the climate changing"} to ${/[aeiou]/.test(this.state.audience.toLowerCase().charAt(0)) ? "an" : "a"} ${this.state.audience ? this.state.audience : "mean person"}? globalmysteryinc.com`);
       this.setState({
         twitterLink: `${baseString}${encodedPath.toLowerCase()}`
       });

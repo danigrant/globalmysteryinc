@@ -8042,7 +8042,7 @@ function (_React$Component) {
 
     Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_7__["default"])(Object(_babel_runtime_corejs2_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_5__["default"])(_this), "updateTwitterLink", function () {
       var baseString = "https://twitter.com/intent/tweet?text=";
-      var encodedPath = encodeURIComponent("\uD83D\uDD75\uFE0F\u200D\u2640\uFE0F Just gave #globalmysteryinc a mystery to solve....how would you explain ".concat(_this.state.topic ? _this.state.topic : "why is the climate changing", " to a ").concat(_this.state.audience ? _this.state.audience : "mean person", "? globalmysteryinc.com"));
+      var encodedPath = encodeURIComponent("\uD83D\uDD75\uFE0F\u200D\u2640\uFE0F Just gave #globalmysteryinc a mystery to solve....how would you explain ".concat(_this.state.topic ? _this.state.topic : "why is the climate changing", " to ").concat(/[aeiou]/.test(_this.state.audience.toLowerCase().charAt(0)) ? "an" : "a", " ").concat(_this.state.audience ? _this.state.audience : "mean person", "? globalmysteryinc.com"));
 
       _this.setState({
         twitterLink: "".concat(baseString).concat(encodedPath.toLowerCase())
