@@ -211,7 +211,7 @@ class Index extends React.Component {
                   </p>
                 </div>
               </a>
-              <p className="check-out-others link"><a href="https://twitter.com/search?q=%23globalmysteryinc" target="_blank">check out the mysteries submitted by others</a></p>
+              <p className="check-out-others link"><a href="https://twitter.com/search?q=%23globalmysteryinc" target="_blank">see other submitted mysteries</a></p>
               <div onClick={this.handleReplay} className="play-again link">
                 <i className="material-icons">replay_rounded</i>
                 <p>Have another mystery?</p>
