@@ -549,7 +549,7 @@ class Index extends react__WEBPACK_IMPORTED_MODULE_2___default.a.Component {
         },
         __self: this
       }), __jsx("p", {
-        className: "font-sml font-weight-bold margin-top-sml",
+        className: "margin-top-med",
         __source: {
           fileName: _jsxFileName,
           lineNumber: 204
@@ -562,7 +562,7 @@ class Index extends react__WEBPACK_IMPORTED_MODULE_2___default.a.Component {
           lineNumber: 204
         },
         __self: this
-      }, " fantastic"), " mystery. It\u2019s been submitted to global mystery headquarters."), __jsx("a", {
+      }, " fantastic"), " mystery. It\u2019s been submitted to global mystery headquarters. Soon we will be kicking off tournaments to find the best explanations to the most intriguing mysteries we receive. It's basically like American Idol meets r/Science."), __jsx("a", {
         onClick: this.handleReplay,
         href: this.state.twitterLink,
         target: "_blank",
@@ -633,7 +633,7 @@ class Index extends react__WEBPACK_IMPORTED_MODULE_2___default.a.Component {
           lineNumber: 214
         },
         __self: this
-      }, "check out the mysteries submitted by others")), __jsx("div", {
+      }, "see other submitted mysteries")), __jsx("div", {
         onClick: this.handleReplay,
         className: "play-again link",
         __source: {
