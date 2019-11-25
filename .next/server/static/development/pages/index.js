@@ -355,9 +355,10 @@ const starterModals = [{
   "index": 3,
   "image": "/images/bitmoji-boom.jpeg",
   "text": "It's a fun game all about this mysterious little world we inhabit."
-}]; // first half is mobile only, if mobile only pulls from that half
+}]; // first half is mobile only, if mobile only pulls from that half, that is done manually
+// if adding a new option here in mobile possibility space also incrment the number in autosuggestedAudienceMobile function
 
-const autosuggestedAudiences = ["aspiring comedian", "mean person", "out of touch relative", "former lover", "thirty something", "woman in her twenties", "tipsy uncle", "bitcoin maximalist", "hungry hungry hippo", "dad-joke dad", "casual run-in", "make-believe person", "irl superhero", "santa elf", "painter", "first-grade teacher", "grandparent", "loved one", "little kid", "aspiring scientist", "future world leader", "visual learner", "vegetarian", "Kim Kardashian look-a-like", "person who is afraid of technology", "person who is late to their next meeting", "parent who loves you very much", "person you are on a first date with", "a toddler with too much energy", "person who lived a thousand years ago", "very wise but also very peculiar child", "person who has never experienced snow", "person you want to have a very short conversation with", "poet who only understands things in rhymes", "audience of senior citizens", "nearby group of people waiting for the subway", "friend you haven't seen since college study abroad", "close friend who is about to become a parent", "very privileged human being", "former member of The Beatles", "TV writer on the cast of SNL", "astronaut who hasn't been back to earth in a decade", "person who is in a big hurry", "tall person you meet in the elevator", "shopkeeper who is wondering what you are doing", "retired professor who refuses to believe new information"];
+const autosuggestedAudiences = ["aspiring comedian", "mean person", "out of touch relative", "former lover", "thirty something", "woman in her twenties", "tipsy uncle", "bitcoin maximalist", "hungry hungry hippo", "dad-joke dad", "casual run-in", "make-believe person", "irl superhero", "santa elf", "painter", "first-grade teacher", "grandparent", "loved one", "little kid", "aspiring scientist", "future world leader", "visual learner", "vegetarian", "non-english speaker", "visual learner", "comedic third grader", "Kim Kardashian look-a-like", "person who is afraid of technology", "person who is late to their next meeting", "parent who loves you very much", "person you are on a first date with", "a toddler with too much energy", "person who lived a thousand years ago", "very wise but also very peculiar child", "person who has never experienced snow", "person you want to have a very short conversation with", "poet who only understands things in rhymes", "audience of senior citizens", "nearby group of people waiting for the subway", "friend you haven't seen since college study abroad", "close friend who is about to become a parent", "very privileged human being", "former member of The Beatles", "TV writer on the cast of SNL", "astronaut who hasn't been back to earth in a decade", "person who is in a big hurry", "tall person you meet in the elevator", "shopkeeper who is wondering what you are doing", "retired professor who refuses to believe new information"];
 
 class Index extends react__WEBPACK_IMPORTED_MODULE_2___default.a.Component {
   constructor(props) {
@@ -482,7 +483,7 @@ class Index extends react__WEBPACK_IMPORTED_MODULE_2___default.a.Component {
     Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__["default"])(this, "autosuggestedAudienceMobile", () => {
       this.handleAudienceChange({
         "target": {
-          "value": autosuggestedAudiences[Math.floor(Math.random() * 23)]
+          "value": autosuggestedAudiences[Math.floor(Math.random() * 26)]
         }
       });
     });
@@ -519,19 +520,19 @@ class Index extends react__WEBPACK_IMPORTED_MODULE_2___default.a.Component {
       return __jsx("div", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 218
+          lineNumber: 222
         },
         __self: this
       }, __jsx(_components_AppContainer__WEBPACK_IMPORTED_MODULE_3__["default"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 219
+          lineNumber: 223
         },
         __self: this
       }, __jsx("div", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 220
+          lineNumber: 224
         },
         __self: this
       }, __jsx(react_dom_confetti__WEBPACK_IMPORTED_MODULE_5___default.a, {
@@ -540,35 +541,35 @@ class Index extends react__WEBPACK_IMPORTED_MODULE_2___default.a.Component {
         config: confettiConfig,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 221
+          lineNumber: 225
         },
         __self: this
       })), __jsx("div", {
         className: "modal",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 223
+          lineNumber: 227
         },
         __self: this
       }, __jsx("img", {
         src: "/images/bitmoji-amazing.png",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 224
+          lineNumber: 228
         },
         __self: this
       }), __jsx("p", {
         className: "margin-top-med",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 225
+          lineNumber: 229
         },
         __self: this
       }, "That is a ", __jsx("span", {
         className: "font-color-purple",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 225
+          lineNumber: 229
         },
         __self: this
       }, " fantastic"), " mystery. It\u2019s been submitted to global mystery headquarters. Soon we will be kicking off tournaments to find the best explanations to the most intriguing mysteries we receive. It's basically like American Idol meets r/Science."), __jsx("a", {
@@ -577,14 +578,14 @@ class Index extends react__WEBPACK_IMPORTED_MODULE_2___default.a.Component {
         target: "_blank",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 226
+          lineNumber: 230
         },
         __self: this
       }, __jsx("div", {
         className: "button margin-top-med background-color-twitter-blue",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 227
+          lineNumber: 231
         },
         __self: this
       }, __jsx("svg", {
@@ -596,42 +597,42 @@ class Index extends react__WEBPACK_IMPORTED_MODULE_2___default.a.Component {
         viewBox: "0 0 24 24",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 228
+          lineNumber: 232
         },
         __self: this
       }, __jsx("path", {
         d: "M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 228
+          lineNumber: 232
         },
         __self: this
       })), __jsx("p", {
         className: "margin-left-sml margin-right-sml",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 229
+          lineNumber: 233
         },
         __self: this
       }, __jsx("span", {
         className: "lg-view",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 230
+          lineNumber: 234
         },
         __self: this
       }, "Share Your Mystery With The Twitterverse"), __jsx("span", {
         className: "sm-view",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 231
+          lineNumber: 235
         },
         __self: this
       }, "Share Mystery With Twitter")))), __jsx("p", {
         className: "check-out-others link",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 235
+          lineNumber: 239
         },
         __self: this
       }, __jsx("a", {
@@ -639,7 +640,7 @@ class Index extends react__WEBPACK_IMPORTED_MODULE_2___default.a.Component {
         target: "_blank",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 235
+          lineNumber: 239
         },
         __self: this
       }, "see other submitted mysteries")), __jsx("div", {
@@ -647,20 +648,20 @@ class Index extends react__WEBPACK_IMPORTED_MODULE_2___default.a.Component {
         className: "play-again link",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 236
+          lineNumber: 240
         },
         __self: this
       }, __jsx("i", {
         className: "material-icons",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 237
+          lineNumber: 241
         },
         __self: this
       }, "replay_rounded"), __jsx("p", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 238
+          lineNumber: 242
         },
         __self: this
       }, "Have another mystery?")))));
@@ -668,25 +669,25 @@ class Index extends react__WEBPACK_IMPORTED_MODULE_2___default.a.Component {
       return __jsx("div", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 246
+          lineNumber: 250
         },
         __self: this
       }, __jsx(_components_AppContainer__WEBPACK_IMPORTED_MODULE_3__["default"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 247
+          lineNumber: 251
         },
         __self: this
       }, this.state.introModalIndex < this.state.introModals.length && __jsx("div", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 250
+          lineNumber: 254
         },
         __self: this
       }, __jsx(_components_Overlay__WEBPACK_IMPORTED_MODULE_6__["default"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 251
+          lineNumber: 255
         },
         __self: this
       }), __jsx(_components_IntroModal__WEBPACK_IMPORTED_MODULE_7__["default"], {
@@ -696,35 +697,35 @@ class Index extends react__WEBPACK_IMPORTED_MODULE_2___default.a.Component {
         closeIntroModal: this.closeIntroModal,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 252
+          lineNumber: 256
         },
         __self: this
       })), !this.state.formIsActive && __jsx("div", {
         className: "title-section-wrapper center margin-top-sml",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 257
+          lineNumber: 261
         },
         __self: this
       }, __jsx("h1", {
         className: "font-lrg",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 258
+          lineNumber: 262
         },
         __self: this
       }, "Serious question."), __jsx("h1", {
         className: "font-lrg",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 259
+          lineNumber: 263
         },
         __self: this
       }, "What would you like explained?"), __jsx("h2", {
         className: "lg-view font-color-grey",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 260
+          lineNumber: 264
         },
         __self: this
       }, "Welcome to a project where we listen to your mysteries and then kick off a tournament to explain them if we can't find the answer.")), this.state.formIsActive && __jsx("i", {
@@ -737,7 +738,7 @@ class Index extends react__WEBPACK_IMPORTED_MODULE_2___default.a.Component {
         className: "close-mystery-form material-icons link",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 265
+          lineNumber: 269
         },
         __self: this
       }, "close_rounded"), __jsx(ExpandableBox, {
@@ -746,28 +747,28 @@ class Index extends react__WEBPACK_IMPORTED_MODULE_2___default.a.Component {
         className: "card-section-wrapper font-sml",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 267
+          lineNumber: 271
         },
         __self: this
       }, __jsx("form", {
         className: "margin-bottom-med",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 268
+          lineNumber: 272
         },
         __self: this
       }, __jsx("div", {
         className: "field-wrap margin-bottom-sml",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 269
+          lineNumber: 273
         },
         __self: this
       }, __jsx("label", {
         className: "how-label",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 270
+          lineNumber: 274
         },
         __self: this
       }, "How would you explain"), __jsx("textarea", {
@@ -780,20 +781,20 @@ class Index extends react__WEBPACK_IMPORTED_MODULE_2___default.a.Component {
         placeholder: "how does popcorn work",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 271
+          lineNumber: 275
         },
         __self: this
       })), __jsx("div", {
         className: "field-wrap margin-bottom-sml",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 273
+          lineNumber: 277
         },
         __self: this
       }, __jsx("label", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 274
+          lineNumber: 278
         },
         __self: this
       }, "to ", /[aeiou]/.test(this.state.audience.toLowerCase().charAt(0)) ? "an" : "a"), __jsx("textarea", {
@@ -806,7 +807,7 @@ class Index extends react__WEBPACK_IMPORTED_MODULE_2___default.a.Component {
         placeholder: "space alien who has never visited earth",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 275
+          lineNumber: 279
         },
         __self: this
       }), __jsx("textarea", {
@@ -819,7 +820,7 @@ class Index extends react__WEBPACK_IMPORTED_MODULE_2___default.a.Component {
         placeholder: "angsty twenty something",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 276
+          lineNumber: 280
         },
         __self: this
       }), __jsx("div", {
@@ -827,14 +828,14 @@ class Index extends react__WEBPACK_IMPORTED_MODULE_2___default.a.Component {
         className: "lg-view autosuggest-audience-button",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 277
+          lineNumber: 281
         },
         __self: this
       }, __jsx("i", {
         className: "material-icons link",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 277
+          lineNumber: 281
         },
         __self: this
       }, "shuffle_rounded")), __jsx("div", {
@@ -842,56 +843,24 @@ class Index extends react__WEBPACK_IMPORTED_MODULE_2___default.a.Component {
         className: "sm-view autosuggest-audience-button",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 278
+          lineNumber: 282
         },
         __self: this
       }, __jsx("i", {
         className: "material-icons link",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 278
+          lineNumber: 282
         },
         __self: this
       }, "shuffle_rounded"))), this.state.formIsActive && __jsx("div", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 282
+          lineNumber: 286
         },
         __self: this
       }, __jsx("div", {
         className: "margin-top-lrg margin-bottom-sml",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 283
-        },
-        __self: this
-      }, __jsx("div", {
-        className: "full-row-width",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 284
-        },
-        __self: this
-      }, __jsx("label", {
-        className: "constrained-width-input",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 284
-        },
-        __self: this
-      }, "Who are you on email:")), __jsx("input", {
-        className: "constrained-width-input",
-        value: this.state.email,
-        onChange: this.handleEmailChange,
-        type: "text",
-        placeholder: "you@your.email",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 285
-        },
-        __self: this
-      })), __jsx("div", {
-        className: "margin-top-med margin-bottom-sml",
         __source: {
           fileName: _jsxFileName,
           lineNumber: 287
@@ -911,6 +880,38 @@ class Index extends react__WEBPACK_IMPORTED_MODULE_2___default.a.Component {
           lineNumber: 288
         },
         __self: this
+      }, "Who are you on email:")), __jsx("input", {
+        className: "constrained-width-input",
+        value: this.state.email,
+        onChange: this.handleEmailChange,
+        type: "text",
+        placeholder: "you@your.email",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 289
+        },
+        __self: this
+      })), __jsx("div", {
+        className: "margin-top-med margin-bottom-sml",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 291
+        },
+        __self: this
+      }, __jsx("div", {
+        className: "full-row-width",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 292
+        },
+        __self: this
+      }, __jsx("label", {
+        className: "constrained-width-input",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 292
+        },
+        __self: this
       }, "Who are you on twitter:")), __jsx("input", {
         className: "constrained-width-input",
         value: this.state.twitter,
@@ -919,14 +920,14 @@ class Index extends react__WEBPACK_IMPORTED_MODULE_2___default.a.Component {
         placeholder: "@yourtwitter",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 289
+          lineNumber: 293
         },
         __self: this
       })), __jsx("div", {
         className: "margin-top-lrg margin-bottom-sml",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 291
+          lineNumber: 295
         },
         __self: this
       }, __jsx("input", {
@@ -937,14 +938,14 @@ class Index extends react__WEBPACK_IMPORTED_MODULE_2___default.a.Component {
         checked: !this.state.anonymity,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 292
+          lineNumber: 296
         },
         __self: this
       }), __jsx("p", {
         id: "checkbox-desc",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 293
+          lineNumber: 297
         },
         __self: this
       }, "You can attribute this mystery to me.")))), __jsx("div", {
@@ -953,7 +954,7 @@ class Index extends react__WEBPACK_IMPORTED_MODULE_2___default.a.Component {
         type: "submit",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 298
+          lineNumber: 302
         },
         __self: this
       }, "Submit Mystery")), !this.state.formIsActive && __jsx("img", {
@@ -962,7 +963,7 @@ class Index extends react__WEBPACK_IMPORTED_MODULE_2___default.a.Component {
         src: "/images/bitmoji-thinking.png",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 302
+          lineNumber: 306
         },
         __self: this
       }), __jsx("img", {
@@ -971,7 +972,7 @@ class Index extends react__WEBPACK_IMPORTED_MODULE_2___default.a.Component {
         src: "/images/bitmoji-thinking.png",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 304
+          lineNumber: 308
         },
         __self: this
       })));

@@ -46,7 +46,8 @@ const starterModals = [
   }
 ]
 
-// first half is mobile only, if mobile only pulls from that half
+// first half is mobile only, if mobile only pulls from that half, that is done manually
+// if adding a new option here in mobile possibility space also incrment the number in autosuggestedAudienceMobile function
 const autosuggestedAudiences = [
   "aspiring comedian",
   "mean person",
@@ -71,6 +72,9 @@ const autosuggestedAudiences = [
   "future world leader",
   "visual learner",
   "vegetarian",
+  "non-english speaker",
+  "visual learner",
+  "comedic third grader",
   "Kim Kardashian look-a-like",
   "person who is afraid of technology",
   "person who is late to their next meeting",
@@ -208,7 +212,7 @@ class Index extends React.Component {
   autosuggestedAudienceMobile = () => {
     this.handleAudienceChange({
       "target": {
-        "value": autosuggestedAudiences[Math.floor(Math.random() * 23)]
+        "value": autosuggestedAudiences[Math.floor(Math.random() * 26)]
       }
     })
   }
