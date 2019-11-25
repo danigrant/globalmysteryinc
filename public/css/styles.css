@@ -123,7 +123,6 @@
 
 .play-again {
   margin-bottom: 0px;
-  margin-top: 15px;
   color: #bfbfbf;
   font-size: 15px;
 }
@@ -227,4 +226,13 @@
   .intro-modal img {
     width: 150px;
   }
+}
+
+.check-out-others {
+  margin-top: 35px;
+}
+
+.check-out-others a {
+  color: #bfbfbf;
+  text-decoration: none;
 }

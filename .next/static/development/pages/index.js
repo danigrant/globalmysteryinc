@@ -8219,25 +8219,40 @@ function (_React$Component) {
             lineNumber: 210
           },
           __self: this
-        }, "Share Mystery With Twitter")))), __jsx("div", {
+        }, "Share Mystery With Twitter")))), __jsx("p", {
+          className: "check-out-others link",
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 214
+          },
+          __self: this
+        }, __jsx("a", {
+          href: "https://twitter.com/search?q=%23globalmysteryinc",
+          target: "_blank",
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 214
+          },
+          __self: this
+        }, "check out the mysteries submitted by others")), __jsx("div", {
           onClick: this.handleReplay,
           className: "play-again link",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 214
+            lineNumber: 215
           },
           __self: this
         }, __jsx("i", {
           className: "material-icons",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 215
+            lineNumber: 216
           },
           __self: this
         }, "replay_rounded"), __jsx("p", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 216
+            lineNumber: 217
           },
           __self: this
         }, "Have another mystery?")))));
@@ -8245,25 +8260,25 @@ function (_React$Component) {
         return __jsx("div", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 224
+            lineNumber: 225
           },
           __self: this
         }, __jsx(_components_AppContainer__WEBPACK_IMPORTED_MODULE_9__["default"], {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 225
+            lineNumber: 226
           },
           __self: this
         }, this.state.introModalIndex < this.state.introModals.length && __jsx("div", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 228
+            lineNumber: 229
           },
           __self: this
         }, __jsx(_components_Overlay__WEBPACK_IMPORTED_MODULE_12__["default"], {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 229
+            lineNumber: 230
           },
           __self: this
         }), __jsx(_components_IntroModal__WEBPACK_IMPORTED_MODULE_13__["default"], {
@@ -8273,35 +8288,35 @@ function (_React$Component) {
           closeIntroModal: this.closeIntroModal,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 230
+            lineNumber: 231
           },
           __self: this
         })), !this.state.formIsActive && __jsx("div", {
           className: "title-section-wrapper center margin-top-sml",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 235
+            lineNumber: 236
           },
           __self: this
         }, __jsx("h1", {
           className: "font-lrg",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 236
+            lineNumber: 237
           },
           __self: this
         }, "Serious question."), __jsx("h1", {
           className: "font-lrg",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 237
+            lineNumber: 238
           },
           __self: this
         }, "What would you like explained?"), __jsx("h2", {
           className: "lg-view font-color-grey",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 238
+            lineNumber: 239
           },
           __self: this
         }, "Welcome to a project where we listen to your mysteries and then kick off a tournament to explain them if we can't find the answer.")), this.state.formIsActive && __jsx("i", {
@@ -8315,7 +8330,7 @@ function (_React$Component) {
           className: "close-mystery-form material-icons link",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 243
+            lineNumber: 244
           },
           __self: this
         }, "close_rounded"), __jsx(ExpandableBox, {
@@ -8324,28 +8339,28 @@ function (_React$Component) {
           className: "card-section-wrapper font-sml",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 245
+            lineNumber: 246
           },
           __self: this
         }, __jsx("form", {
           className: "margin-bottom-med",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 246
+            lineNumber: 247
           },
           __self: this
         }, __jsx("div", {
           className: "field-wrap margin-bottom-sml",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 247
+            lineNumber: 248
           },
           __self: this
         }, __jsx("label", {
           className: "how-label",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 248
+            lineNumber: 249
           },
           __self: this
         }, "How would you explain"), __jsx("textarea", {
@@ -8358,20 +8373,20 @@ function (_React$Component) {
           placeholder: "how does popcorn work",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 249
+            lineNumber: 250
           },
           __self: this
         })), __jsx("div", {
           className: "field-wrap margin-bottom-sml",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 251
+            lineNumber: 252
           },
           __self: this
         }, __jsx("label", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 252
+            lineNumber: 253
           },
           __self: this
         }, "to ", /[aeiou]/.test(this.state.audience.toLowerCase().charAt(0)) ? "an" : "a"), __jsx("textarea", {
@@ -8384,7 +8399,7 @@ function (_React$Component) {
           placeholder: "space alien who has never visited earth",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 253
+            lineNumber: 254
           },
           __self: this
         }), __jsx("textarea", {
@@ -8397,7 +8412,7 @@ function (_React$Component) {
           placeholder: "angsty twenty something",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 254
+            lineNumber: 255
           },
           __self: this
         }), __jsx("div", {
@@ -8405,41 +8420,41 @@ function (_React$Component) {
           className: "autosuggest-audience-button",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 255
+            lineNumber: 256
           },
           __self: this
         }, __jsx("i", {
           className: "material-icons link",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 255
+            lineNumber: 256
           },
           __self: this
         }, "shuffle_rounded"))), this.state.formIsActive && __jsx("div", {
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 259
-          },
-          __self: this
-        }, __jsx("div", {
-          className: "margin-top-lrg margin-bottom-sml",
           __source: {
             fileName: _jsxFileName,
             lineNumber: 260
           },
           __self: this
         }, __jsx("div", {
-          className: "full-row-width",
+          className: "margin-top-lrg margin-bottom-sml",
           __source: {
             fileName: _jsxFileName,
             lineNumber: 261
+          },
+          __self: this
+        }, __jsx("div", {
+          className: "full-row-width",
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 262
           },
           __self: this
         }, __jsx("label", {
           className: "constrained-width-input",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 261
+            lineNumber: 262
           },
           __self: this
         }, "Who are you on email:")), __jsx("input", {
@@ -8450,28 +8465,28 @@ function (_React$Component) {
           placeholder: "you@your.email",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 262
+            lineNumber: 263
           },
           __self: this
         })), __jsx("div", {
           className: "margin-top-med margin-bottom-sml",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 264
+            lineNumber: 265
           },
           __self: this
         }, __jsx("div", {
           className: "full-row-width",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 265
+            lineNumber: 266
           },
           __self: this
         }, __jsx("label", {
           className: "constrained-width-input",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 265
+            lineNumber: 266
           },
           __self: this
         }, "Who are you on twitter:")), __jsx("input", {
@@ -8482,14 +8497,14 @@ function (_React$Component) {
           placeholder: "@yourtwitter",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 266
+            lineNumber: 267
           },
           __self: this
         })), __jsx("div", {
           className: "margin-top-lrg margin-bottom-sml",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 268
+            lineNumber: 269
           },
           __self: this
         }, __jsx("input", {
@@ -8500,14 +8515,14 @@ function (_React$Component) {
           checked: !this.state.anonymity,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 269
+            lineNumber: 270
           },
           __self: this
         }), __jsx("p", {
           id: "checkbox-desc",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 270
+            lineNumber: 271
           },
           __self: this
         }, "You can attribute this mystery to me.")))), __jsx("div", {
@@ -8516,7 +8531,7 @@ function (_React$Component) {
           type: "submit",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 275
+            lineNumber: 276
           },
           __self: this
         }, "Submit Mystery")), !this.state.formIsActive && __jsx("img", {
@@ -8525,7 +8540,7 @@ function (_React$Component) {
           src: "/images/bitmoji-thinking.png",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 279
+            lineNumber: 280
           },
           __self: this
         }), __jsx("img", {
@@ -8534,7 +8549,7 @@ function (_React$Component) {
           src: "/images/bitmoji-thinking.png",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 281
+            lineNumber: 282
           },
           __self: this
         })));
