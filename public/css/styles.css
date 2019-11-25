@@ -3,7 +3,6 @@
   height: -webkit-fill-available;
   display: flex;
   flex-direction: column;
-  overflow-x: hidden;
 }
 
 .card-section-wrapper {
